@@ -1,4 +1,5 @@
 from io import BytesIO
+import random
 
 from flask import Flask, send_file
 
@@ -27,19 +28,19 @@ def frontpage():
 
 @app.route('/example1.png')
 def example1():
-    fig, ax = plt.subplots(1)
+    fig, ax = plt.subplots()
     draw(ax)
     return nocache(fig_response(fig))
 
 def draw(ax):
     """Draw a random scatterplot"""
-    import random
     x = [random.random() for i in range(100)]
     y = [random.random() for i in range(100)]
     ax.scatter(x, y)
+    ax.set_title("Random scatterplot")
 
 def fig_response(fig):
-    """Turn a matplotlib figure into Flask response"""
+    """Turn a matplotlib Figure into Flask response"""
     img_bytes = BytesIO()
     fig.savefig(img_bytes)
     img_bytes.seek(0)
