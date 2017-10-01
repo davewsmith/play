@@ -1,5 +1,5 @@
 """
-Parse and 'execute' a MadLib spam script
+Parse and evaluate a MadLib spam script
 """
 
 import random
