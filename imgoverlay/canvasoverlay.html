@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas Overlay</title>
+<!--
+-->
+<style>
+p { font-family: "sans-serif"; }
+
+.overlay {
+    position: relative;
+    display: inline-block; /* forces div to take on the size of the image */
+    border: 2px solid green;
+}
+
+.overlay img {
+    display: block;
+    /* height: auto; */
+    /* max-width: 100%; */
+}
+
+.overlay canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* height: 100%; width: 100%; */ /* instead of attributes on the svg element */
+}
+</style>
+</head>
+<body>
+
+<p>Overlaying a canvas on an image to draw annotations.</p>
+
+<div class="overlay">
+  <img src="MrSkunk.jpg" />
+  <canvas id="canvas" height="432" width="768" />
+</div>
+
+<script>
+/* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/ */
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var TAU = Math.PI * 2;
+
+/* Draw circles in the top-left and bottom-right corners */
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(0, 0, 10, 0, TAU, true);
+ctx.arc(768, 432, 10, 0, TAU, true);
+ctx.fill();
+
+/* see-through circle */
+ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
+ctx.beginPath();
+ctx.arc(300, 200, 25, 0, TAU, true);
+ctx.fill();
+
+/* circle with ~centered text */
+ctx.fillStyle = 'red';
+ctx.beginPath();
+ctx.arc(400, 200, 25, 0, TAU, true);
+ctx.fill();
+ctx.font = '24px sans-serif';
+ctx.fillStyle = 'white';
+ctx.textAlign = 'center';
+ctx.fillText('66\u00B0', 400, 200+6);
+
+</script>
+
+
+</body>
+</html>
