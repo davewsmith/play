@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Overlay #1</title>
+<!--
+https://stackoverflow.com/questions/43806515/position-svg-elements-over-an-image
+-->
+<style>
+.overlay {
+    position: relative;
+    display: inline-block;
+    border: 2px solid green;
+}
+
+.overlay img {
+    display: block;
+    /* height: auto; */
+    /* max-width: 100%; */
+}
+
+.overlay svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; width: 100%; /* instead of attributes on the svg element */
+}
+</style>
+</head>
+<body>
+
+<div class="overlay">
+  <img src="MrSkunk.jpg" />
+  <svg> <!-- height="432" width="768"> -->
+    <circle cx="0"  cy="0"  r="5" fill="yellow" />
+    <circle cx="768" cy="432" r="5" fill="yellow" />
+
+    <circle cx="10" cy="10" r="5" fill="green" />
+    <circle cx="50" cy="50" r="5" fill="red" fill-opacity="0.3" />
+    <circle cx="100" cy="100" r="5" fill="green" />
+    <circle cx="200" cy="200" r="24" fill="purple" fill-opacity="0.3" />
+  </svg>
+</div>
+
+
+</body>
+</html>
