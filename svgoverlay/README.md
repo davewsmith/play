@@ -1,4 +1,3 @@
 # SVG Overlay
 
-Poking around with overlaying SVG onto images, since that might be useful for some projects.
-
+Playing around with overlaying SVG onto images, since that might be useful for some projects.
