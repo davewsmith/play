@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Overlay #1</title>
+<title>SVG Overlay</title>
 <!--
 https://stackoverflow.com/questions/43806515/position-svg-elements-over-an-image
 https://stackoverflow.com/questions/30970618/generating-number-circles-in-svg-how-to-centre-the-text
 -->
 <style>
+p { font-family: "sans-serif"; }
+
 .overlay {
     position: relative;
     display: inline-block; /* forces div to take on the size of the image */
@@ -28,6 +30,8 @@ https://stackoverflow.com/questions/30970618/generating-number-circles-in-svg-ho
 </style>
 </head>
 <body>
+
+<p>Overlaying SVG on an image to draw annotations.</p>
 
 <div class="overlay">
   <img src="MrSkunk.jpg" />
