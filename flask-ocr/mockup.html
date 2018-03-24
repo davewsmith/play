@@ -1,0 +1,53 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+<title>Test</title>
+<style>
+p { font-family: "sans-serif"; }
+
+.overlay {
+    position: relative;
+    display: inline-block; /* forces div to take on the size of the image */
+    border: 2px solid green;
+}
+
+.overlay img {
+    display: block;
+    /* height: auto; */
+    /* max-width: 100%; */
+}
+.overlay svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; width: 100%; /* instead of attributes on the svg element */
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="overlay">
+  <img src="static/sample.png" />
+  <svg>
+    <!-- <rect x="98" y="66" width="821" height="596" fill="blue" fill-opacity="0.1" /> -->
+    <rect x="105" y="66" width="719" height="48" fill="blue" fill-opacity="0.1" />
+ 
+    <rect x="105" y="66" width="74" height="32" fill="red" fill-opacity="0.2" />
+    <rect x="205" y="67" width="143" height="40" fill="red" fill-opacity="0.2" />
+    <rect x="376" y="69" width="153" height="41" fill="red" fill-opacity="0.2" />
+    <rect x="559" y="71" width="105" height="40" fill="red" fill-opacity="0.2" />
+    <rect x="687" y="73" width="137" height="41" fill="red" fill-opacity="0.2" />
+
+    <rect x="104" y="115" width="96" height="33" fill="red" fill-opacity="0.2" />
+    <rect x="224" y="117" width="60" height="32" fill="red" fill-opacity="0.2" />
+    <rect x="310" y="117" width="224" height="39" fill="red" fill-opacity="0.2" />
+    <rect x="561" y="121" width="136" height="42" fill="red" fill-opacity="0.2" />
+    <rect x="722" y="123" width="70" height="32" fill="red" fill-opacity="0.2" />
+    <rect x="818" y="125" width="70" height="41" fill="red" fill-opacity="0.2" />
+</div>
+
+</body>
+</html>
+
