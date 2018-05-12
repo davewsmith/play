@@ -23,9 +23,7 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-from app import routes, models  # noqa
-if not app.debug:
-    from app import errors  # noqa
+from app import routes, models, errors  # noqa
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
