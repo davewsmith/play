@@ -1,6 +1,8 @@
 # Flask Tutorial
 
-Based on select bits of https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+Stepping through 
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+making a few changes as I go, and taking these notes.
 
 The tutorial suggests starting with
 
@@ -40,5 +42,16 @@ And the second migration, after adding app.models.Note
 Starting up a db- and model-aware shell is done via
 
     FLASK_APP=tutorial.py venv/bin/flask shell
+
+This lets you do some Django-shell stuff like
+
+    >>> u = User(username='dave', email='dave@example.com')
+    >>> db.session.add(u)
+    >>> db.session.commit()
+    >>> users = User.query.all()
+    [<User dave>]
+    >>>
+
+The `shell_context_processor` in tutorial.py is what makes `db` and `User` available. Note that this mechanism can surface affordances that aren't reachable via the Web.
 
 
