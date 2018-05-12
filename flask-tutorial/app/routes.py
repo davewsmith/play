@@ -21,6 +21,7 @@ from app import (
 from app.forms import (
     EditProfileForm,
     LoginForm,
+    NoteForm,
     RegistrationForm,
 )
 from app.models import (
@@ -35,13 +36,22 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
+    form = NoteForm()
+    if form.validate_on_submit():
+        note = Note(body=form.note.data, author=current_user)
+        db.session.add(note)
+        db.session.commit()
+        flash('Your note is now live!')
+        return redirect(url_for('index'))
+
     bindings = dict(
         title='Home',
-        notes=Note.query.all(),
+        form=form,
+        notes=current_user.followed_notes().all(),
     )
     return render_template('index.html', **bindings)
 
