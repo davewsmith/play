@@ -3,6 +3,7 @@
 {% block content %}
     <h1>Hello, {{ current_user.username }}!</h1>
 
+    {% if form %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -14,10 +15,10 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-
+    {% endif %} 
 
     {% for note in notes %}
-    <div><p>{{ note.author.username }} says: <b>{{ note.body }}</b></p></div>
+        {% include "_note.html" %}
     {% endfor %}
 
 {% endblock %}

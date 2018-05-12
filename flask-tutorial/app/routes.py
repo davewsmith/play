@@ -55,6 +55,17 @@ def index():
     )
     return render_template('index.html', **bindings)
 
+@app.route('/explore')
+@login_required
+def explore():
+    notes = Note.query.order_by(Note.timestamp.desc()).all()
+    bindings = dict(
+        title='Explore',
+        form=None,
+        notes=notes,
+    )
+    return render_template('index.html', **bindings)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
