@@ -70,3 +70,8 @@ Cute trick: For debugging email sending, set up a local SMTP server via
 
 Also note that Flask won't send email if FLASK_DEBUG is truthy.
 
+## Step VIII notes
+
+Now we get into some SQLAlchemy magic... after a migration
+
+
