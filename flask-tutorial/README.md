@@ -62,3 +62,11 @@ The `shell_context_processor` in tutorial.py is what makes `db` and `User` avail
     FLASK_APP=tutorial.py venv/bin/flask db migrate -m 'add fields to user'
     FLASK_APP=tutorial.py venv/bin/flask db upgrade
 
+## Step VII notes
+
+Cute trick: For debugging email sending, set up a local SMTP server via
+
+    python -m smtpd -n -c DebuggingServer localhost:8025
+
+Also note that Flask won't send email if FLASK_DEBUG is truthy.
+
