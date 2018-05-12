@@ -18,3 +18,15 @@ So
     $ virtualenv --python=python3 venv
     $ venv/bin/pip install -r requirements.txt
 
+## Step IV notes
+
+The database is created via
+
+    FLASK_APP=tutorial.py venv/bin/flask db init
+
+to generate the migrations, and
+
+    FLASK_APP=tutorial.py venv/bin/flask db migrate -m 'users table'
+
+to generate the database (since this is the first migration)
+
