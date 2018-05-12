@@ -20,13 +20,16 @@ So
 
 ## Step IV notes
 
-The database is created via
+The migration infrastructure is created via
 
     FLASK_APP=tutorial.py venv/bin/flask db init
 
-to generate the migrations, and
+The first migration is created via
 
     FLASK_APP=tutorial.py venv/bin/flask db migrate -m 'users table'
 
-to generate the database (since this is the first migration)
+And applied via
+
+    FLASK_APP=tutorial.py venv/bin/flask db upgrade
+
 
