@@ -54,4 +54,11 @@ This lets you do some Django-shell stuff like
 
 The `shell_context_processor` in tutorial.py is what makes `db` and `User` available. Note that this mechanism can surface affordances that aren't reachable via the Web.
 
+## Step V notes
+
+## Step VI notes
+
+
+    FLASK_APP=tutorial.py venv/bin/flask db migrate -m 'add fields to user'
+    FLASK_APP=tutorial.py venv/bin/flask db upgrade
 
