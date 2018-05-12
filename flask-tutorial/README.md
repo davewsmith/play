@@ -32,4 +32,13 @@ And applied via
 
     FLASK_APP=tutorial.py venv/bin/flask db upgrade
 
+And the second migration, after adding app.models.Note
+
+    FLASK_APP=tutorial.py venv/bin/flask db migrate
+    FLASK_APP=tutorial.py venv/bin/flask db upgrade
+
+Starting up a db- and model-aware shell is done via
+
+    FLASK_APP=tutorial.py venv/bin/flask shell
+
 
