@@ -35,6 +35,25 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
+
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.followed.remove(user)
+
+    def is_following(self, user):
+        return self.followed.filter(
+            followers.c.followed_id == user.id).count() > 0
+
+    def followed_notes(self):
+        return Note.query.join(
+            followers,
+            (followers.c.followed_id == Note.user_id)).filter(
+                followers.c.follower_id == self.id).order_by(
+                    Note.timestamp.desc())
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
