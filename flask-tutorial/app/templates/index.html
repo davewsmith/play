@@ -21,4 +21,12 @@
         {% include "_note.html" %}
     {% endfor %}
 
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Newer notes</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Older notes</a>
+    {% endif %}
+
+
 {% endblock %}

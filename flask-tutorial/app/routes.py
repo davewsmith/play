@@ -48,21 +48,35 @@ def index():
         flash('Your note is now live!')
         return redirect(url_for('index'))
 
+    page = request.args.get('page', 1, type=int)
+    notes = current_user.followed_notes().paginate(
+        page, app.config['NOTES_PER_PAGE'], False)
+    prev_url = url_for('index', page=notes.prev_num) if notes.has_prev else None
+    next_url = url_for('index', page=notes.next_num) if notes.has_next else None
+
     bindings = dict(
         title='Home',
         form=form,
-        notes=current_user.followed_notes().all(),
+        notes=notes.items,
+        prev_url=prev_url,
+        next_url=next_url,
     )
     return render_template('index.html', **bindings)
 
 @app.route('/explore')
 @login_required
 def explore():
-    notes = Note.query.order_by(Note.timestamp.desc()).all()
+    page = request.args.get('page', 1, type=int)
+    notes = Note.query.order_by(Note.timestamp.desc()).paginate(
+        page, app.config['NOTES_PER_PAGE'], False)
+    prev_url = url_for('explore', page=notes.prev_num) if notes.has_prev else None
+    next_url = url_for('explore', page=notes.next_num) if notes.has_next else None
     bindings = dict(
         title='Explore',
         form=None,
-        notes=notes,
+        notes=notes.items,
+        prev_url=prev_url,
+        next_url=next_url,
     )
     return render_template('index.html', **bindings)
 
@@ -106,11 +120,17 @@ def register():
 @app.route('/user/<username>')
 @login_required
 def user(username):
+    page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    notes = Note.query.filter_by(user_id=user.id).all()
+    notes = Note.query.filter_by(user_id=user.id).paginate(
+        page, app.config['NOTES_PER_PAGE'], False)
+    prev_url = url_for('user', username=user.username, page=notes.prev_num) if notes.has_prev else None
+    next_url = url_for('user', username=user.username, page=notes.next_num) if notes.has_next else None
     bindings = dict(
         user=user,
-        notes=notes,
+        notes=notes.items,
+        prev_url=prev_url,
+        next_url=next_url,
     )
     return render_template('user.html', **bindings)
 
