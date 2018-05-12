@@ -78,3 +78,6 @@ To run tests
 
     venv/bin/python tests.py
 
+Note the test setup to use an in-memory SQLite3. It implies some coupling between the app and db that's worth investigating/understanding.
+
+
