@@ -2,13 +2,16 @@
 
 Stepping through 
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-making a few changes as I go, and taking these notes.
+as an excuse to check out some aread of Flask that I haven't used yet.
+Making a few changes as I go, and taking these notes.
+
+## Step I notes
 
 The tutorial suggests starting with
 
     $ python3 -m venv venv
 
-but on Ubuntu 14.04
+but on Ubuntu 14.04, I get
 
     The virtual environment was not created successfully because ensurepip is not
     available.  On Debian/Ubuntu systems, you need to install the python3-venv
@@ -19,6 +22,10 @@ but on Ubuntu 14.04
 So
     $ virtualenv --python=python3 venv
     $ venv/bin/pip install -r requirements.txt
+
+## Steps II-III notes
+
+Noting noteworthy.
 
 ## Step IV notes
 
@@ -78,9 +85,11 @@ To run tests
 
     venv/bin/python tests.py
 
-Note the test setup to use an in-memory SQLite3. It implies some coupling between the app and db that's worth investigating/understanding.
+Note the test setup to use an in-memory SQLite3. It implies some coupling between the `app` and `db` objects that may be worth investigating/understanding.
 
 ## Step IX notes
+
+Nothing noteworthy.
 
 ## Step X notes
 
