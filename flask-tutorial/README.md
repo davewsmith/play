@@ -104,3 +104,11 @@ in one windows, and
 in another. Wrote scripts for both.
 
 Note that `app` is passed into the `send_async_email` thread to make `app.config` available.
+
+## Step XI notes
+
+Mostly copying changes out of the Tutorial github.
+
+Much simplification via `wtf.quick_form(form)`.
+
+Looks... Bootstrapped

@@ -1,11 +1,17 @@
-    <table>
-        <tr valign="top">
-            <td><img src="{{ note.author.avatar(36) }}"></td>
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                <a href="{{ url_for('user', username=note.author.username) }}">
+                    <img src="{{ note.author.avatar(70) }}" />
+                </a>
+            </td>
             <td>
                 <a href="{{ url_for('user', username=note.author.username) }}">
                     {{ note.author.username }}
                 </a>
-                says:<br>{{ note.body }}
+                says:
+                <br>
+                {{ note.body }}
             </td>
         </tr>
     </table>

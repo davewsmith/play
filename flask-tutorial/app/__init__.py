@@ -6,6 +6,7 @@ from logging.handlers import (
 import os
 
 from flask import Flask
+from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
@@ -19,6 +20,8 @@ app.config.from_object(Config)
 
 login = LoginManager(app)
 login.login_view = 'login'
+
+boostrap = Bootstrap(app)
 
 mail = Mail(app)
 
