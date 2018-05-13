@@ -107,8 +107,17 @@ Note that `app` is passed into the `send_async_email` thread to make `app.config
 
 ## Step XI notes
 
-Mostly copying changes out of the Tutorial github.
+Mostly copying template changes out of the Tutorial github.
 
 Much simplification via `wtf.quick_form(form)`.
 
 Looks... Bootstrapped
+
+Note that`flask-boostrap` (by default) pulls in stuff from a CDN. E.g.,
+`http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js`
+
+## Step XII-XIV notes
+
+Skimmed and skipped.
+
+
