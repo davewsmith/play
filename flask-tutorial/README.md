@@ -80,4 +80,19 @@ To run tests
 
 Note the test setup to use an in-memory SQLite3. It implies some coupling between the app and db that's worth investigating/understanding.
 
+## Step IX notes
+
+## Step X notes
+
+Used the fake mailer trick.
+
+    python -m smtpd -n -c DebuggingServer localhost:8025
+
+in one windows, and
+
+    MAIL_SERVER=localhost MAIL_PORT=8025 FLASK_APP=tutorial.py venv/bin/flask run
+
+in another. Wrote scripts for both.
+
+
 

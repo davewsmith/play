@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export FLASK_APP=tutorial.py
+export MAIL_SERVER=localhost
+export MAIL_PORT=8025
+venv/bin/flask run
