@@ -1,12 +1,15 @@
 from app import (
-    app,
+    # cli,
+    create_app,
     db,
-    mail,
 )
 from app.models import (
     User,
     Note,
 )
+
+app = create_app()
+# cli.register(app)
 
 
 @app.shell_context_processor
@@ -18,6 +21,5 @@ def make_shell_context():
         # 'app' is exported for free
         'db': db,
         'mail': mail,
-        'User': User,
         'Note': Note,
     }

@@ -1,23 +1,30 @@
+#!venv/bin/python
+
 from datetime import datetime, timedelta
 import unittest
 
-from app import (
-    app,
-    db,
-)
-from app.models import (
-    Note,
-    User,
-)
+from app import create_app, db
+from app.models import User, Note
+from config import Config
+
+
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    # ELASTICSEARCH_URL = None
+
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
 
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def test_password_hashing(self):
         u = User(username='susan')
@@ -64,15 +71,15 @@ class UserModelCase(unittest.TestCase):
 
         # create four posts
         now = datetime.utcnow()
-        n1 = Note(body="post from john", author=u1,
+        p1 = Note(body="post from john", author=u1,
                   timestamp=now + timedelta(seconds=1))
-        n2 = Note(body="post from susan", author=u2,
+        p2 = Note(body="post from susan", author=u2,
                   timestamp=now + timedelta(seconds=4))
-        n3 = Note(body="post from mary", author=u3,
+        p3 = Note(body="post from mary", author=u3,
                   timestamp=now + timedelta(seconds=3))
-        n4 = Note(body="post from david", author=u4,
+        p4 = Note(body="post from david", author=u4,
                   timestamp=now + timedelta(seconds=2))
-        db.session.add_all([n1, n2, n3, n4])
+        db.session.add_all([p1, p2, p3, p4])
         db.session.commit()
 
         # setup the followers
@@ -87,10 +94,11 @@ class UserModelCase(unittest.TestCase):
         f2 = u2.followed_notes().all()
         f3 = u3.followed_notes().all()
         f4 = u4.followed_notes().all()
-        self.assertEqual(f1, [n2, n4, n1])
-        self.assertEqual(f2, [n2, n3])
-        self.assertEqual(f3, [n3, n4])
-        self.assertEqual(f4, [n4])
+        self.assertEqual(f1, [p2, p4, p1])
+        self.assertEqual(f2, [p2, p3])
+        self.assertEqual(f3, [p3, p4])
+        self.assertEqual(f4, [p4])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
