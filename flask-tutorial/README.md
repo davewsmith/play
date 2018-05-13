@@ -94,5 +94,4 @@ in one windows, and
 
 in another. Wrote scripts for both.
 
-
-
+Note that `app` is passed into the `send_async_email` thread to make `app.config` available.
