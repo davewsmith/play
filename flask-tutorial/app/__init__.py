@@ -18,6 +18,7 @@ from config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 
+
 login = LoginManager(app)
 login.login_view = 'login'
 
@@ -29,7 +30,10 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-from app import routes, models, errors  # noqa
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
+
+from app import routes, models  # noqa
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
