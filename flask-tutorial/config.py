@@ -12,6 +12,9 @@ class Config(object):
 
     LOG_TO_STDOUT=os.environ.get('LOG_TO_STDOUT')
 
+    # If False, serves from a CDN
+    BOOTSTRAP_SERVE_LOCAL = True
+
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None

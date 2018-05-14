@@ -111,13 +111,30 @@ Mostly copying template changes out of the Tutorial github.
 
 Much simplification via `wtf.quick_form(form)`.
 
-Looks... Bootstrapped
+The result looks... Bootstrapped. And not the latest bootstrap.
+The flask-bootstrap project looks like it hasn't seen any action in a year,
+with a backlog of PRs, including one to move to the latest bootstrap.
 
-Note that`flask-boostrap` (by default) pulls in stuff from a CDN. E.g.,
-`http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js`
+Note that`flask-bootstrap (by default) pulls in stuff from a CDN. E.g.,
+`http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js`.
+
+Setting `BOOTSTRAP_SERVE_LOCAL = True` will serve files locally.
+
+The `flask-boostrap` project itself looks disturbingly like it's been abandoned.
+No updates in a year, and a backlog of PRs.
 
 ## Step XII-XIV notes
 
 Skimmed and skipped.
 
+## Step XV notes
 
+Refactoring into Blueprints was harder than it needed to be.
+I needed a better checklist for moving things safely.
+Each step of the refactoring seemed to require touching lots of places to get the app back to runnable.
+
+## TO DO
+
+1. There's an uncomfortable coupling between blueprints via `app.models`.
+   It feels like Blueprints should own their models, but it's natural for non-Auth blueprints to want to link to a `User` object.
+   Look to see how others have solved this.
