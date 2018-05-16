@@ -20,6 +20,6 @@ def make_shell_context():
     return {
         # 'app' is exported for free
         'db': db,
-        'mail': mail,
         'Note': Note,
+        'User': User,
     }
