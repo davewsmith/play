@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+    A demo of setting up a resize handler to resize a canvas.
+-->
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Resize demo</title>
+    <style>
+    html, body {
+        height: 100%; width: 100%;
+        margin: 0px;
+        border: 0;
+        overflow: hidden;  /* disable scrollbars */
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+
+<canvas id='drawing' style='position: absolute; left: 0px; top: 0px;'></canvas>
+
+<script>
+console.log('script');
+(function() {
+    var canvas = document.getElementById('drawing');
+    var context = canvas.getContext('2d');
+
+    console.log('addEventListener');
+    window.addEventListener('resize', resizeHandler, false);
+    console.log('done. now first resize...');
+    resizeHandler();
+    console.log('done');
+
+    function resizeHandler() {
+        console.log('resize')
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        redraw();
+    }
+
+    function redraw() {
+        context.strokeStyle = 'red';
+        context.lineWidth = '5';
+        context.strokeRect(0, 0, canvas.width, canvas.height);
+    }
+})();
+</script>
+
+</body>
+</head>
