@@ -32,14 +32,19 @@ p { font-family: "sans-serif"; }
 <p>Overlaying a canvas on an image to draw annotations.</p>
 
 <div class="overlay">
-  <img src="MrSkunk.jpg" />
-  <canvas id="canvas" height="432" width="768" />
+  <img id="image" src="MrSkunk.jpg" height="432" width="768" />
+  <canvas id="canvas" />
 </div>
 
 <script>
 /* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/ */
 
+var image = document.getElementById("image");
 var canvas = document.getElementById("canvas");
+// Match the canvas side to the image
+canvas.height = image.height;
+canvas.width= image.width;
+
 var ctx = canvas.getContext("2d");
 var TAU = Math.PI * 2;
 
