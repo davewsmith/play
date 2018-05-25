@@ -22,9 +22,8 @@
 <canvas id='drawing' style='position: absolute; left: 0px; top: 0px;'></canvas>
 
 <script>
-console.log('script');
-(function() {
-    var canvas = document.getElementById('drawing');
+(function(canvas_id) {
+    var canvas = document.getElementById(canvas_id);
     var context = canvas.getContext('2d');
 
     console.log('addEventListener');
@@ -34,9 +33,9 @@ console.log('script');
     console.log('done');
 
     function resizeHandler() {
-        console.log('resize')
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        console.log('resize to ' + canvas.width + 'x' + canvas.height);
         redraw();
     }
 
@@ -45,7 +44,7 @@ console.log('script');
         context.lineWidth = '5';
         context.strokeRect(0, 0, canvas.width, canvas.height);
     }
-})();
+})('drawing');
 </script>
 
 </body>
