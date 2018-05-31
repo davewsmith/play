@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+<title>Experiment2</title>
+<style>
+p { font-family: "sans-serif"; }
+
+.overlay {
+    position: relative;
+    display: inline-block;  /* forces dive to take on the size of the image */
+    border: 2px solid green;
+}
+
+.overlay img {
+    display: block;
+}
+.overlay canvas {
+    position: absolute;
+    top: 0; left: 0;
+}
+</style>
+</head>
+
+<body>
+
+<p>Demo</p>
+
+<div class="overlay">
+  <img id="image" src="MrSkunk.jpg" />
+  <canvas id="canvas" />
+</div>
+
+<!-- stuff to eventually move -->
+<script>
+Model = function() {
+    this.placeholder = 'model';
+}
+Model.prototype.draw = function() {
+    // TODO nothing to draw yet
+}
+
+
+Interactor = function(model, canvas) {
+    this.model = model;
+    this.canvas = canvas;
+    this.drawing = false;
+
+    this.line_x = canvas.width / 2;
+    this.line_y = canvas.height / 2;
+}
+Interactor.prototype.start = function() {
+    var _this = this;
+
+    const eventsToCapture = ['mousedown', 'mousemove', 'mouseup', 'mousenter', 'mouseleave']
+    for (const e of eventsToCapture) {
+        this.canvas.addEventListener(e, function(event) {
+            _this.handle_event(e, event);
+            _this.draw();
+        });
+    }
+    console.log('interactor start');
+}
+Interactor.prototype.handle_event = function(name, event) {
+    console.log(name);
+    if (name == 'mousedown') {
+        this.line_x = event.offsetX;
+        this.line_y = event.offsetY;
+    }
+}
+Interactor.prototype.draw = function() {
+    var _this = this;
+    if (!this.drawing) {
+        requestAnimationFrame(function() {
+            _this.draw_interaction();
+            _this.drawing = false;
+        });
+    }
+    this.drawing = true;
+}
+Interactor.prototype.draw_interaction = function() {
+    var ctx = this.canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = 'rgb(255, 0, 0)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(this.line_x, 0);
+    ctx.lineTo(this.line_x, this.canvas.height);
+    ctx.moveTo(0, this.line_y);
+    ctx.lineTo(this.canvas.width, this.line_y);
+    ctx.stroke();
+}
+
+
+</script>
+
+<script>
+var model = new Model();
+console.log('waiting for load');
+window.addEventListener('load', function(event) {
+    console.log('load');
+    var image = document.getElementById('image');
+    var canvas = document.getElementById('canvas');
+    canvas.height = image.height;
+    canvas.width = image.width;
+
+    var model = new Model();
+
+    var interactor = new Interactor(model, canvas);
+    interactor.draw();
+    interactor.start();
+});
+
+</script>
+
+</body>
+</html>
