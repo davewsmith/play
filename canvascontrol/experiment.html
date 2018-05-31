@@ -39,13 +39,43 @@ Model.prototype.draw = function() {
 }
 
 
+CrossHairWaiting = function(interactor) {
+    this.interactor = interactor;
+}
+CrossHairWaiting.prototype.advance = function(name, event) {
+    if (name == 'mousedown') {
+        this.interactor.crosshair(event.offsetX, event.offsetY);
+        return new CrossHairDragging(this.interactor);
+    }
+    return this;
+}
+
+CrossHairDragging = function(interactor) {
+    this.interactor = interactor;
+}
+CrossHairDragging.prototype.advance = function(name, event) {
+    if (name == 'mouseup' || name == 'mouseleave') {
+        return new CrossHairWaiting(this.interactor);
+    }
+    this.interactor.crosshair(event.offsetX, event.offsetY);
+    return this;
+}
+
+
 Interactor = function(model, canvas) {
     this.model = model;
     this.canvas = canvas;
+
+    this.tool = new CrossHairWaiting(this);
+
     this.drawing = false;
 
     this.line_x = canvas.width / 2;
     this.line_y = canvas.height / 2;
+}
+Interactor.prototype.crosshair = function(x, y) {
+    this.line_x = x;
+    this.line_y = y;
 }
 Interactor.prototype.start = function() {
     var _this = this;
@@ -61,10 +91,7 @@ Interactor.prototype.start = function() {
 }
 Interactor.prototype.handle_event = function(name, event) {
     console.log(name);
-    if (name == 'mousedown') {
-        this.line_x = event.offsetX;
-        this.line_y = event.offsetY;
-    }
+    this.tool = this.tool.advance(name, event);
 }
 Interactor.prototype.draw = function() {
     var _this = this;
