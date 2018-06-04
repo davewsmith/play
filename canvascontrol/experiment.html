@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Experiment2</title>
+<title>Skunk Targeting</title>
 <style>
 p { font-family: "sans-serif"; }
 
@@ -22,7 +22,7 @@ p { font-family: "sans-serif"; }
 
 <body>
 
-<p>Demo</p>
+<p>Click on Mr. Skunk (and drag)</p>
 
 <div class="overlay">
   <img id="image" src="MrSkunk.jpg" />
@@ -107,7 +107,7 @@ Interactor.prototype.draw_interaction = function() {
     var ctx = this.canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = 'rgb(255, 0, 0)';
+    ctx.strokeStyle = 'rgba(255, 0, 0, 0.6)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(this.line_x, 0);
@@ -116,7 +116,6 @@ Interactor.prototype.draw_interaction = function() {
     ctx.lineTo(this.canvas.width, this.line_y);
     ctx.stroke();
 }
-
 
 </script>
 
