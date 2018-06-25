@@ -20,8 +20,8 @@ but on Ubuntu 14.04, I get
         apt-get install python3-venv
 
 So
-    $ virtualenv --python=python3 venv
-    $ venv/bin/pip install -r requirements.txt
+    virtualenv --python=python3 venv
+    venv/bin/pip install -r requirements.txt
 
 ## Steps II-III notes
 
