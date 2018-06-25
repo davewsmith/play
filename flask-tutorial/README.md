@@ -116,7 +116,7 @@ The result looks... Bootstrapped. And not the latest bootstrap.
 The flask-bootstrap project looks like it hasn't seen any action in a year,
 with a backlog of PRs, including one to move to the latest bootstrap.
 
-Note that`flask-bootstrap (by default) pulls in stuff from a CDN. E.g.,
+Note that`flask-bootstrap` (by default) pulls in stuff from a CDN. E.g.,
 `http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js`.
 
 Setting `BOOTSTRAP_SERVE_LOCAL = True` will serve files locally.
