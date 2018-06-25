@@ -2,7 +2,7 @@
 
 Stepping through 
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-as an excuse to check out some aread of Flask that I haven't used yet.
+as an excuse to check out some areas of Flask that I haven't used yet.
 Making a few changes as I go, and taking these notes.
 
 ## Step I notes
