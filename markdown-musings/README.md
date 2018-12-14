@@ -12,3 +12,8 @@ The `--upgrade` may be required on earlier Ubuntus.
 
 This installs Markdown-3.0.1. Documentation is at https://python-markdown.github.io/reference/
 
+## The Tests
+
+1. **test1.py** demonstrates basic output for simple input, and shows that `xhtml` output is the same as `html5` output.
+
+
