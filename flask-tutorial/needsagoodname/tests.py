@@ -10,8 +10,7 @@ from config import Config
 
 
 class TestConfig(Config):
-    pass
-
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 class CliTestCase(unittest.TestCase):
 

@@ -8,11 +8,11 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
     venv/bin/pip install --upgrade pip
     venv/bin/pip install -r requirements.txt
 
-## Run
+## Running it
 
     FLASK_APP=runner.py flask run
 
-## Run tests
+## Running the tests
 
     venv/bin/python tests.py
 
@@ -22,10 +22,11 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 * Print "Hi!" from the CLI (``FLASK_APP=runner.py flask hi``)
 * Test case for "Hi!" from web page
 * Test case for "Hi!" from the CLI
+* Added basic SQLAlchemy support (using SQLite3)
 
 ## TO DO
 
-* Add somethings to a persistent store through the CLI
+* Add something to a persistent store through the CLI
 * Prove the same in a test
 * Display the thing through the Web, with a test
 
