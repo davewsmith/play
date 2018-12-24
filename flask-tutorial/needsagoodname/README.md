@@ -10,6 +10,8 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 
 ## DONE
 
+* Print "Hi!" from a web page
+
 ## TO DO
 
 * Print "Hi!" from the CLI
