@@ -2,6 +2,12 @@
 
 Sourdough starter for Pi projects that do things on some schedule, and present some sort of web UI for the results.
 
+## Setup
+
+    virtualenv --python=python3 venv
+    venv/bin/pip install --upgrade pip
+    venv/bin/pip install -r requirements.txt
+
 ## DONE
 
 ## TO DO
