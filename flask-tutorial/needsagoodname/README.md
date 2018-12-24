@@ -23,6 +23,7 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 * Test case for "Hi!" from web page
 * Test case for "Hi!" from the CLI
 * Added basic SQLAlchemy support (using SQLite3)
+* Add CliMessage model and a test of it
 
 ## TO DO
 
