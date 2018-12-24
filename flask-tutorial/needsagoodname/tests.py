@@ -2,12 +2,27 @@
 
 import unittest
 
-from app import create_app
+from app import (
+    cli,
+    create_app,
+)
 from config import Config
 
 
 class TestConfig(Config):
     pass
+
+
+class CliTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.app = create_app(TestConfig)
+        cli.register(self.app)
+        self.runner = self.app.test_cli_runner()
+
+    def testHi(self):
+        result = self.runner.invoke(args=['hi'])
+        self.assertTrue('Hi!' in result.output)
 
 
 class MainTestCase(unittest.TestCase):

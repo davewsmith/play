@@ -21,6 +21,7 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 * Print "Hi!" from a web page
 * Print "Hi!" from the CLI (``FLASK_APP=runner.py flask hi``)
 * Test case for "Hi!" from web page
+* Test case for "Hi!" from the CLI
 
 ## TO DO
 
