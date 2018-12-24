@@ -12,10 +12,15 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 
     FLASK_APP=runner.py flask run
 
+## Run tests
+
+    venv/bin/python tests.py
+
 ## DONE
 
 * Print "Hi!" from a web page
 * Print "Hi!" from the CLI (``FLASK_APP=runner.py flask hi``)
+* Test case for "Hi!" from web page
 
 ## TO DO
 
