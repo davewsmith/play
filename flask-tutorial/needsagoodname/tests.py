@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from datetime import datetime
 import unittest
 
@@ -34,19 +33,6 @@ class DatabaseTestCase(unittest.TestCase):
 
 class CliTestCase(DatabaseTestCase):
 
-    def setUp(self):
-        self.app = create_app(TestConfig)
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        db.create_all()
-        cli.register(self.app)
-        self.runner = self.app.test_cli_runner()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-        self.app_context.pop()
-
     def test_hi(self):
         result = self.runner.invoke(args=['hi'])
         self.assertTrue('Hi!' in result.output)
@@ -55,18 +41,6 @@ class CliTestCase(DatabaseTestCase):
 
 
 class DbTestCases(DatabaseTestCase):
-
-    def setUp(self):
-        self.app = create_app(TestConfig)
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        db.create_all()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-        self.app_context.pop()
-
 
     def test_climessage(self):
         test_started_at = datetime.utcnow()
@@ -82,16 +56,11 @@ class DbTestCases(DatabaseTestCase):
         self.assertTrue(recovered_message.created_at <= datetime.utcnow())
 
 
-class MainRoutesTestCase(unittest.TestCase):
+class MainRoutesTestCase(DatabaseTestCase):
 
     def setUp(self):
-        self.app = create_app(TestConfig)
-        self.app_context = self.app.app_context()
-        self.app_context.push()
-        self.client = self.app.test_client()
-
-    def tearDown(self):
-        self.app_context.pop()
+       super(MainRoutesTestCase, self).setUp()
+       self.client = self.app.test_client()
 
     def testIndex(self):
         result = self.client.get('/')
