@@ -5,5 +5,16 @@
 </head>
 <body>
 <h1>Hi!</h1>
+{% if messages %}
+<table>
+{% for message in messages %}
+<tr>
+<td>{{ message.id }}</td>
+<td>{{ message.created_at }}</td>
+<td>{{ message.message }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
 </body>
 </html>

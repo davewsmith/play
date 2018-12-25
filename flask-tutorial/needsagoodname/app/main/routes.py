@@ -3,9 +3,11 @@ from flask import (
 )
 
 from app.main import bp
+from app.models import CliMessage
 
 
 @bp.route('/')
 def index():
-    return render_template("index.html")
+    messages = CliMessage.query.all()
+    return render_template("index.html", messages=messages)
     

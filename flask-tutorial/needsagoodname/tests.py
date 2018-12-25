@@ -62,9 +62,15 @@ class MainRoutesTestCase(DatabaseTestCase):
        super(MainRoutesTestCase, self).setUp()
        self.client = self.app.test_client()
 
-    def testIndex(self):
+    def test_index(self):
         result = self.client.get('/')
         self.assertTrue(b'Hi!' in result.data)
+
+    def test_index_with_message(self):
+        db.session.add(CliMessage(message='Woot!'))
+        db.session.commit()
+        result = self.client.get('/')
+        self.assertTrue(b'Woot!' in result.data)
 
 
 if __name__ == '__main__':
