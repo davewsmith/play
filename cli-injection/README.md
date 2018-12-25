@@ -1,4 +1,4 @@
-# Needs a Good Name
+# CLI Injection
 
 Sourdough starter for projects that do things on some schedule, and present some sort of web UI for the results.
 
