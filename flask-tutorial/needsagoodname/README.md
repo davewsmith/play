@@ -24,10 +24,9 @@ Sourdough starter for Pi projects that do things on some schedule, and present s
 * Test case for "Hi!" from the CLI
 * Added basic SQLAlchemy support (using SQLite3)
 * Add CliMessage model and a test of it
+* CLI persists a CliMessage (with test)
 
 ## TO DO
 
-* Add something to a persistent store through the CLI
-* Prove the same in a test
 * Display the thing through the Web, with a test
 
