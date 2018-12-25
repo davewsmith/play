@@ -16,7 +16,23 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 
-class CliTestCase(unittest.TestCase):
+class DatabaseTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        db.create_all()
+        cli.register(self.app)
+        self.runner = self.app.test_cli_runner()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
+
+
+class CliTestCase(DatabaseTestCase):
 
     def setUp(self):
         self.app = create_app(TestConfig)
@@ -38,7 +54,7 @@ class CliTestCase(unittest.TestCase):
         self.assertEqual('Hi!', cli_message.message)
 
 
-class DbTestCases(unittest.TestCase):
+class DbTestCases(DatabaseTestCase):
 
     def setUp(self):
         self.app = create_app(TestConfig)
