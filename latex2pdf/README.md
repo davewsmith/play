@@ -1,0 +1,3 @@
+# Hacking around with LaTeX
+
+In progress...
