@@ -9,6 +9,7 @@ sudo apt-get update
 
 sudo apt-get install -y build-essential texlive python-virtualenv
 
+cd /vagrant
 virtualenv --python=python3 venv
 venv/bin/pip install flask latex
 
