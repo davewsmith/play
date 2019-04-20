@@ -1,6 +1,10 @@
-# matplotlib (and seaborn) graphs via Flask
+# Generating graphs dynamically with Flask
 
-Playing around with generating graphs dynamically on the server side.
+Playing around with generating graphs dynamically on the server side. The desire is to get stuff like
+
+![example](example.png)
+
+onto a web page without having to generate images and store them to disk.
 
 The key bit to getting matplotlib to play along is
 
