@@ -19,4 +19,4 @@ done before any plotting. This prevents matplotlib from trying to use `tkinker`,
 
 ## Using this
 
-This particular example is set up be run from a VirtualBox VM built by Vagrant, but that's really incidental. The Python dependencies are in the shell script at the top of `Vagrantfile`. I find VMs (and virtualenvs in them) to be a simple way to muck about with dependencies until they're just right, without risk to polluting my laptop's Python install.
+This particular example is set up be run from a VirtualBox VM built by Vagrant, but that's really incidental. The Python dependencies are in the shell script at the top of `Vagrantfile`. I find VMs (and virtualenvs in them) to be a simple way to muck about with dependencies until they're just right, without risk of polluting my laptop's base OS install.
