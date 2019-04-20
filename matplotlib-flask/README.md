@@ -1,6 +1,6 @@
-# Generating graphs dynamically with Flask
+# Generating matplotlib graphs dynamically with Flask
 
-Playing around with generating graphs dynamically on the server side. The intent is capture a working example of how to get stuff like
+Playing around with generating matplotlib graphs dynamically on the server side. The intent is capture a working example of how to get stuff like
 
 ![example](example.png)
 
