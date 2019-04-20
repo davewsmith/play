@@ -4,7 +4,7 @@ Playing around with generating graphs dynamically on the server side. The intent
 
 ![example](example.png)
 
-onto a web page without having to save generated images to disk. This is all done in memory.
+onto a web page without having to save generated images to disk. Graphs are converted to HTTP responses (with the right headers, including non-caching) directly.
 
 The hexbin example is adapted from [the seaborn examples](https://seaborn.pydata.org/examples/).
 
