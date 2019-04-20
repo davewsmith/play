@@ -1,10 +1,10 @@
 # Generating matplotlib graphs from Flask
 
-Playing around with generating matplotlib graphs dynamically on the server side. The intent is capture a working example of how to get graphs like
+Playing around with generating matplotlib graphs dynamically on the server side. The intent is capture a working example of how to get matplotlib-based graphs like
 
 ![example](example.png)
 
-onto a web page without having to save generated images to disk. Graphs are converted to HTTP responses (with the right headers, including non-caching) directly. Examples are stupidly simple because the technique generalizes to more complicated graphs.
+onto a web page without having to save generated images to disk. Graphs are converted to HTTP responses (with the right headers, including non-caching) directly. Examples are stupidly simple to avoid obsuring the mechanism.
 
 The hexbin example is adapted from [the seaborn examples](https://seaborn.pydata.org/examples/).
 
