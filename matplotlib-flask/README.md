@@ -1,10 +1,12 @@
-# matplotlib graphs via Flask
+# matplotlib (and seaborn) graphs via Flask
 
-Playing around with using matplotlib with Flask, for those occassions when rendering a graph server-side is preferable.
+Playing around with generating graphs dynamically on the server side.
 
-Key bits:
+The key bit to getting matplotlib to play along is
 
     import matplotlib
     matplotlib.use('agg')
 
-done before any plotting, prevents matplotlib from trying to use `tkinker`, which ends sadly in this context.
+done before any plotting. This prevents matplotlib from trying to use `tkinker`, which ends sadly in this context.
+
+The seaborn example is directly from [the seaborn doc](https://seaborn.pydata.org/examples/hexbin_marginals.html).

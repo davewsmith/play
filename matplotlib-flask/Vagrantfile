@@ -5,15 +5,13 @@ sudo apt-get update
 
 # sudo apt-get install -y git
 
-sudo apt-get install -y python3-pip
-# bootstrap a recent pip3
-sudo -H pip3 install --upgrade pip
+sudo apt-get install -y python-virtualenv
 
-# Install matplotlib and some extras
-sudo -H pip3 install matplotlib numpy scipy sklearn pandas seaborn
-
-# And finally, Flask
-sudo -H pip3 install Flask
+cd /vagrant
+virtualenv --python=python3 venv
+# venv/bin/pip install --upgrade pip
+venv/bin/pip install Flask matplotlib numpy seaborn
+# venv/bin/pip install scipy sklearn pandas
 
 SCRIPT
 
