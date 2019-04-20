@@ -6,7 +6,7 @@ Playing around with generating graphs dynamically on the server side. The intent
 
 onto a web page without having to save generated images to disk. This is all done in memory.
 
-The hexbin example is directly from [the seaborn examples](https://seaborn.pydata.org/examples/).
+The hexbin example is adapted from [the seaborn examples](https://seaborn.pydata.org/examples/).
 
 ## Getting matplotlib to behave
 
