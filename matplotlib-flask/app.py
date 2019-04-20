@@ -22,7 +22,7 @@ app = Flask(__name__)
 def frontpage():
     return """
 <!doctype html>
-<head><title>matplotlib</title></head>
+<head><title>dynamic</title></head>
 <body>
 
 <div>
@@ -61,7 +61,6 @@ def example2():
     x = rs.gamma(2, size=1000)
     y = -.5 * x + rs.normal(size=1000)
     plot = sns.jointplot(x, y, kind='hex', color='#4CB391')
-    # fig = plot.get_figure()
     fig = plot.fig
     return nocache(fig_response(fig))
 
