@@ -1,4 +1,6 @@
-# Working through a Vue.js/webpack tutorial
+# vue.js totorial
+
+Working through a Vue.js/webpack tutorial a second time.
 
 https://medium.com/codingthesmartway-com-blog/vue-js-2-quickstart-tutorial-2017-246195cfbdd2
 
