@@ -7,8 +7,11 @@ from app.auth.models import User
 
 @bp.route('/login')
 def login():
-    user = User('Dave')
-    user.save()
+    user = User.find_by_email('dave@example.com')
+    if user is None:
+        user = User('Dave')
+        user.email = 'dave@example.com'
+        user.save()
     login_user(user)
     return redirect(url_for('main.home'))
 
