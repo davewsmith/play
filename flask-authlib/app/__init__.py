@@ -19,6 +19,11 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
     oauth.init_app(app)
 
+    # Hook in OAuth2 for GitHub. Key here, aside from some settings that flow
+    # in via app.config, is that we point to app.main.handle_authorize(),
+    # were we catch the result of authenticating, create a new User if
+    # necessary, and peform the actual login_user().
+
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp)
 

@@ -7,6 +7,7 @@ from app.auth.models import User
 
 @bp.route('/login')
 def login():
+    """Simulate the standard login flow."""
     user = User.find_by_email('dave@example.com')
     if user is None:
         user = User('Dave')
