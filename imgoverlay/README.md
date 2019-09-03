@@ -1,3 +1,3 @@
 # IMG Overlay
 
-Playing around with overlaying various things onto images, since that might be useful for some projects.
+Playing around with overlaying canvas and svg layers on images, since such a thing just might be useful for some future projects.

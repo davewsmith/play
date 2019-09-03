@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<tt>
+<hr />
+<p>url_map:</p>
+<ul>
+{% for rule in rules %}
+<li>{{ rule }}</li>
+{% endfor %}
+</ul>
+</tt>
+
+{% endblock %}
+

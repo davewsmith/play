@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Experiment</title>
+  </head>
+  <body>
+    {% if current_user.is_authenticated %}
+    <p>
+    Hello, {{ current_user.name }} ({{ current_user.id }}).
+    <a href="{{ url_for('auth.logout') }}">logout</a>
+    </p>
+    {% else %}
+    <p>
+    Hello, anonymous person.
+    <a href="{{ url_for('auth.login') }}">login</a>
+    <a href="{{ url_for('loginpass_github.login') }}">login with github</a>
+    </p>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

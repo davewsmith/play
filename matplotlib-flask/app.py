@@ -1,6 +1,9 @@
 from io import BytesIO
 import random
 
+import numpy as np
+import seaborn as sns
+
 from flask import Flask, send_file
 
 import matplotlib
@@ -19,9 +22,17 @@ app = Flask(__name__)
 def frontpage():
     return """
 <!doctype html>
-<head><title>matplotlib</title></head>
+<head><title>dynamic</title></head>
 <body>
+
+<div>
 <img style="border: 1px dotted red" src="/example1.png" />
+</div>
+
+<div>
+<img style="border: 1px dotted red" src="/example2.png" />
+</div>
+
 </body>
 </html>
 """
@@ -29,15 +40,29 @@ def frontpage():
 @app.route('/example1.png')
 def example1():
     fig, ax = plt.subplots()
-    draw(ax)
+    draw1(ax)
     return nocache(fig_response(fig))
 
-def draw(ax):
+def draw1(ax):
     """Draw a random scatterplot"""
     x = [random.random() for i in range(100)]
     y = [random.random() for i in range(100)]
     ax.scatter(x, y)
     ax.set_title("Random scatterplot")
+
+@app.route('/example2.png')
+def example2():
+    """Draw a hexbin with marginals
+
+    From https://seaborn.pydata.org/examples/hexbin_marginals.html
+    """
+    sns.set(style='ticks')
+    rs = np.random.RandomState(11)
+    x = rs.gamma(2, size=1000)
+    y = -.5 * x + rs.normal(size=1000)
+    plot = sns.jointplot(x, y, kind='hex', color='#4CB391')
+    fig = plot.fig
+    return nocache(fig_response(fig))
 
 def fig_response(fig):
     """Turn a matplotlib Figure into Flask response"""
