@@ -12,6 +12,8 @@ def starthere():
 </head>
 <html>
 <a href="/static/index.html">Foundation demo (unmodified)</a><br />
+<br />
+<a href="/base">Base page</a>
 </html>
 """
 
@@ -19,6 +21,6 @@ def starthere():
 def index():
     return render_template('index.html')
 
-@app.route('/home')
-def home():
-    return render_template('home.html')
+@app.route('/base')
+def base():
+    return render_template('base.html')
