@@ -9,7 +9,7 @@ Because Bootstrap is looking a bit dated, and Foundation doesn't require a build
 
 ## Use
 
-    venv/bin/flask run
+    ./run
 
 ## References
 

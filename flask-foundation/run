@@ -1,0 +1,3 @@
+#!/bin/bash
+
+FLASK_APP=app.py venv/bin/flask run --port=5001
