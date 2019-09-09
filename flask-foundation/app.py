@@ -13,7 +13,8 @@ def starthere():
 <html>
 <a href="/static/index.html">Foundation demo (unmodified)</a><br />
 <br />
-<a href="/base">Base page</a>
+<a href="/base">Base page</a><br />
+<a href="/login">Login</a><br />
 </html>
 """
 
@@ -24,3 +25,8 @@ def index():
 @app.route('/base')
 def base():
     return render_template('base.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+

@@ -7,6 +7,10 @@
     <title>{% block title %}Base{% endblock %}</title>
     <link rel="stylesheet" href="/static/css/foundation.css">
     <link rel="stylesheet" href="/static/css/app.css">
+    <style>
+    {% block extracss %}
+    {% endblock %}
+    </style>
   </head>
   <body>
   {% block body %}
@@ -16,7 +20,9 @@
     <script src="/static/js/vendor/what-input.js"></script>
     <script src="/static/js/vendor/foundation.js"></script>
     <script src="/static/js/app.js"></script>
+    <script>
     {% block extrajs %}
     {% endblock %}
+    </script>
   </body>
 </html>

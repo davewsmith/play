@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block extracss %}
+
+.floated-label-wrapper {
+    position: relative;
+}
+
+.floated-label-wrapper label {
+  background: #fefefe;
+  color: #1779ba;
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 0.75rem;
+  opacity: 0;
+  padding: 0 0.25rem;
+  position: absolute;
+  top: 2rem;
+  transition: all 0.15s ease-in;
+  z-index: -1;
+}
+
+.floated-label-wrapper label input[type=text],
+.floated-label-wrapper label input[type=email],
+.floated-label-wrapper label input[type=password] {
+  border-radius: 4px;
+  font-size: 1.75em;
+  padding: 0.5em;
+}
+
+.floated-label-wrapper label.show {
+  opacity: 1;
+  top: -0.85rem;
+  z-index: 1;
+  transition: all 0.15s ease-in;
+}
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="row column align-center medium-5 large-4">
+  <form class="callout text-center">
+    <h2>Sign In</h2>
+    <div class="floating-label-wrapper">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+    </div>
+    <div class="floating-label-wrapper">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+    </div>
+    <input class="button expanded" type="submit" value="Sign in" />
+  </form>
+</div>
+
+{% endblock %}
