@@ -17,6 +17,4 @@ Put together a manifest, add as a desktop app, and test going offline.
 ## References
 
 * https://developers.google.com/web/fundamentals/codelabs/debugging-service-workers
-
-
-
+* https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
