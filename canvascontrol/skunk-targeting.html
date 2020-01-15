@@ -129,8 +129,6 @@ window.addEventListener('load', function(event) {
     canvas.height = image.height;
     canvas.width = image.width;
 
-    var model = new Model();
-
     var interactor = new Interactor(model, canvas);
     interactor.draw();
     interactor.start();
