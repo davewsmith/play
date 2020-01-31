@@ -8,7 +8,7 @@ cd /vagrant
 virtualenv --python=python3 venv
 venv/bin/pip install redis
 
-echo ":set hlsearch noincrsearch noai sw=4 ts=40" >> ~/.vimrc
+echo ":set hlsearch noincsearch noai sw=4 ts=40" >> ~/.vimrc
 
 SCRIPT
 
