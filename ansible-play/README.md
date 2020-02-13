@@ -14,6 +14,10 @@ The only unusual thing here is putting ansible in a virtual environment to avoid
     $ ./setup.sh
     $ . venv.ansible/bin/activate
     $ vagrant up
+    # time passes...
+    $ vagrant ssh
+    ...
+    $ vagrant destroy -f
 
 ## References
 
