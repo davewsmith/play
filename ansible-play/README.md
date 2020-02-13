@@ -9,11 +9,11 @@ Mucking about with using Ansible to provision a VM
 
 ## Setup
 
+The only unusual thing here is putting ansible in a virtual environment to avoid (further) polluting system.
+
     $ ./setup.sh
     $ . venv.ansible/bin/activate
     $ vagrant up
-    ...
-    $ vagrant destroy -f
 
 ## References
 
