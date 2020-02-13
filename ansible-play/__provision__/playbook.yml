@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Sanity check
+      debug:
+        msg: "Made it this far"
