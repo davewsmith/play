@@ -6,23 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Base{% endblock %}</title>
     <link rel="stylesheet" href="/static/css/foundation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/app.css">
-    <style>
-    {% block extracss %}
-    {% endblock %}
-    </style>
   </head>
   <body>
-  {% block body %}
-  <h1>Body goes here</h1>
-  {% endblock %}
+    {% block body %}
+    <h1>Body goes here</h1>
+    {% endblock body %}
+
     <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/vendor/what-input.js"></script>
     <script src="/static/js/vendor/foundation.js"></script>
     <script src="/static/js/app.js"></script>
-    <script>
-    {% block extrajs %}
-    {% endblock %}
-    </script>
   </body>
 </html>
