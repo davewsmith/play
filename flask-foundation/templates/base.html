@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/static/css/foundation.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/app.css">
+    {% block extracss %}{# so that experiments don't contend for app.css #}
+    {% endblock %}
   </head>
   <body>
     {% block body %}
@@ -18,5 +20,7 @@
     <script src="/static/js/vendor/what-input.js"></script>
     <script src="/static/js/vendor/foundation.js"></script>
     <script src="/static/js/app.js"></script>
+    {% block extrajs %}{# so that experiments don't contend for app.js #}
+    {% endblock %}
   </body>
 </html>
