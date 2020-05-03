@@ -25,3 +25,4 @@ will start up a local Flask server, then, in your browser of choice,
 * https://foundation.zurb.com/sites/docs/
 * https://zurb.com/blog/foundation-building-blocks-over-100-compo
 * https://fontawesome.com/v4.7.0/icons/
+* https://fontawesome.com/v4.7.0/examples/
