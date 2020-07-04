@@ -27,9 +27,10 @@ starts the flask development server.
 
 Using the browser of your choise, visit `http://127.0.0.1:5000/`
 
-Clicking the 'enqueue work' link queues up a fake task.
+Clicking the 'enqueue work' link queues up a trivial task.
 Click the link several times, and watch the queue size grow.
-Then refresh the page every few seconds and watch the queue size burn down.
+Then refresh the page every few seconds and watch the queue size burn down
+as the worker thread pretends to do work.
 
 ## Caveats
 
