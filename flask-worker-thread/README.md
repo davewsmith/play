@@ -1,7 +1,7 @@
 # Flask Worker Thread Demo
 
-This demonstrates how to do long-running tasks in process in a Flask app,
-using a worker thread.
+This demonstrates how to use a worker thread to handle long-running
+tasks in a Flask app.
 
 The question of how to do something like this keeps coming up on
 StackOverflow. The 'right' answer is to use a task queue like
@@ -43,4 +43,9 @@ appropriate locking if you're accessing data structures that are shared
 with the Flask app. It pays here to read and reflect on the Python
 [threading](https://docs.python.org/3/library/threading.html) documentation.
 
-
+As soon as you deploy multiple instances of a Flask app (e.g., behind
+gunicorn or uwsgi), this approach will continue to work, but tasks will
+be distributed among processes, and will no longer run sequentially.
+This poses two problems: First, getting a summary of queued tasks is
+more difficult. Second, tasks risk colliding on shared resources,
+such as temporary files, unless you're careful to keep resources separate.
