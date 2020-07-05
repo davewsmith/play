@@ -4,8 +4,8 @@
   <title>Demo</title>
 </head>
 <body>
-  <p>Queue size: {{ size }}</p>
+  <p>Work queue size: {{ size }}</p>
 
-  <a href="/enqueue">enqueue work</a>
+  <a href="{{ url_for('add_task') }}">add work</a>
 </body>
 </html>
