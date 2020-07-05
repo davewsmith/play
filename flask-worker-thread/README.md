@@ -42,7 +42,7 @@ On Linux (or maybe MacOS)
 
 sets things up. Then
 
-    ./run
+    ./rundemo
 
 starts the flask development server.
 
