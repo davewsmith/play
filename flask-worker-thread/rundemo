@@ -1,1 +1,1 @@
-FLASK_APP=workerthreaddemo.py venv/bin/flask run --host=0.0.0.0
+FLASK_APP=demo venv/bin/flask run --host=0.0.0.0
