@@ -33,13 +33,13 @@ def worker(queue):
 # the worker. The worker will block immediately until a task is added
 # to the queue.
 work_queue = Queue()
-worker_thread = Thread(target=worker, args=(work_queue,))
+worker_thread = Thread(target=worker, args=(work_queue,), daemon=True)
 worker_thread.start()
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', queue_size=work_queue.qsize())
+    return render_template('index.html', worker_thread=worker_thread, queue_size=work_queue.qsize())
 
 
 # Because this is a cheesy demo, a task is just a number. And because

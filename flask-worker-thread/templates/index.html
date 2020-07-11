@@ -4,6 +4,7 @@
   <title>Demo</title>
 </head>
 <body>
+  <p>worker_thread.is_alive() = {{ worker_thread.is_alive() }}, _is_stopped = {{ worker_thread._is_stopped }}</p>
   <p>Work queue size: {{ queue_size }}</p>
 
   <a href="{{ url_for('add_task') }}">add work</a>

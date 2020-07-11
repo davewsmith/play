@@ -22,8 +22,11 @@ That's what this demo does.
 
 ## Caveats
 
-This approach works best when running the an app under the
-development server. Since there's a single process, there'll
+This will *not* run under `uwsgi`, for as-yet unknown reasons.
+It does appear to work wiith `gunicorn`.
+
+It does work when running an app under Flask development
+runner.  Since there's a single process, there'll
 be a single queue instance. This makes examinging the queue
 (say, to show how many tasks are waiting) simple.
 
