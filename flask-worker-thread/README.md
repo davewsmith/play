@@ -22,11 +22,10 @@ That's what this demo does.
 
 ## Caveats
 
-This will *not* run under `uwsgi`, for as-yet unknown reasons.
-It does appear to work wiith `gunicorn`.
+There are many. This is not a general solution.
 
-It does work when running an app under Flask development
-runner.  Since there's a single process, there'll
+It does work when running an app under Flask development runner,
+but not with DEBUG=True. Since there's a single process, there'll
 be a single queue instance. This makes examinging the queue
 (say, to show how many tasks are waiting) simple.
 
@@ -35,6 +34,10 @@ if you're going to share resources between the worker thread
 and Flask threads.
 It pays here to read and reflect on the Python
 [threading](https://docs.python.org/3/library/threading.html) documentation.
+
+This will *not* run under `uwsgi`, for as-yet unknown reasons.
+
+It does appear to work with `gunicorn`.
 
 ## Setup
 
