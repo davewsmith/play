@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <title>Dialogs</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,45 +10,48 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap.min.css">
 
-    <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Dialog demo</h1>
+    <div class="container">
+
+    <h1>Bootstrap Dialogs</h1>
 
     <p>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example1Modal">
-      Launch demo1 modal
+      Demo1
     </button>
-      which should swing down gracefully
+      which swings down gracefully
     </p>
    
     <p> 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example2Modal">
-      Launch demo2 modal
+      Demo2
     </button>
       which should just appear
     </p>
 
     <p> 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example3Modal">
-      Launch demo3 modal
+      Demo3
     </button>
-      which should is harder to dismiss (ignores escape)
+      which is harder to dismiss (ignores escape)
     </p>
 
     <p> 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example4Modal">
-      Launch demo4 modal
+      Demo4
     </button>
-      which attempts to center itself
+      which is centered
     </p>
 
     <p> 
-    <button type="button" id="example5Button" class="btn btn-primary">
-      Launch demo5 modal
+    <button type="button" id="example5Button" class="btn btn-primary" data-message="message from button data">
+      Demo5
     </button>
-      launched from JS
+      which is launched from JS
     </p>
+
+    </div>
 
     <!-- example1Modal -->
     <div class="modal fade" id="example1Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,7 +174,8 @@
         $('#example5Modal .modal-body').html(
               /* typeof(e) */
               /* Object.keys(e.target).join(', ') */
-              $(this).text()
+              /* $(this).text() */
+              $(this).data('message')
         );
         $('#example5Modal').modal({
             backdrop: 'static'
