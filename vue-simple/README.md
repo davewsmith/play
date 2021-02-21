@@ -2,12 +2,12 @@
 
 A simple demo of using Vue.js without webpack et al. (No npm!)
 
-This uses a pattern found in NASA F' GDS[1], which depart slightly from what I've seen in the official Vue.js docs.
+This uses a pattern found in the NASA F' GDS[1], which departs slightly from what I've seen in the official Vue.js docs.
 
 The novel bit is the use of seemingly stand-alone `Vue.component(...)` calls to register components,
 rather than explicitly attaching components to a  `new Vue(...)` instance.
 
-Vue.js 3 will probably break this by moving to `Vue.createApp(...)`.
+Vue.js 3 will probably break this scheme by moving to `Vue.createApp(...)`.
 
 
 ## Instructions
