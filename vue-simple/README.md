@@ -1,9 +1,19 @@
-# Vue the Simple Way
+# Vue 2 without a build stack
 
-Trying out Vue.js without a build stack (i.e., no webpack)
+This uses a pattern found in NASA F' GDS[1], which depart slightly from what I've seen in the official Vue docs.
 
-Following some patterns from NASA F' GDS[1], which depart slightly from the Vue docs.
+The novel bit is the use of seemingly stand-alone `Vue.component(...)` calls to register components,
+rather than explicitly attaching components to a  `new Vue(...)` instance.
 
+
+
+## Instructions
+
+Use
+
+    ./server
+
+to start local web server. This is needed because JavaScript modules only loads via HTTP(S).
 
 
 ## Notes
