@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>Vue Simple</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+    <sample-content></sample-content>
+</div>
+
+<!-- templates -->
+<div hidden>
+
+  <h1>I should be hidden</h1>
+
+  <template id="sample-content-template">
+    <div>
+      <h2>Sample Content</h2>
+      <p>{{ content }}</p>
+    </div>
+  </template>
+
+</div>
+
+</body>
+
+</html>
