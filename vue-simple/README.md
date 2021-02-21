@@ -1,6 +1,6 @@
-# Vue 2 without a build stack
+# Vue.js 2 without a build stack
 
-This uses a pattern found in NASA F' GDS[1], which depart slightly from what I've seen in the official Vue docs.
+This uses a pattern found in NASA F' GDS[1], which depart slightly from what I've seen in the official Vue.js docs.
 
 The novel bit is the use of seemingly stand-alone `Vue.component(...)` calls to register components,
 rather than explicitly attaching components to a  `new Vue(...)` instance.
