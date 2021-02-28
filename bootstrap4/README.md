@@ -2,6 +2,8 @@
 
 "Hold my beer, I'm going to try something."
 
+Or, catching up to where the front-end world was several years ago.
+
 ## Notes
 
 * The default template uses jQuery slim. Probably best to ditch it immediately in favor of full jQuery.  

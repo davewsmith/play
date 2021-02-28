@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+</html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+
+    <style>
+.flex-container {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  will-change: overflow;
+  top: 45px;
+  padding-bottom: 45px;
+}
+    .side-nav {
+        overflow: auto;
+        height: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+     }
+    .side-nav {
+      padding: 0;
+      width: 3.5rem;
+      background-color: #f8f9fa;
+      border-right: 1px solid black;
+    }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">Dashboard</a>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+        </ul>
+
+        <form class="form-inline mt-2 mt-md-0">
+            <div class="collapse navbar-collapse" id="">
+                <div class="mt-2 mt-md-0">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a href="" class="logout" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button">
+                                    <i class="fa fa-user" aria-hidden="true"></i> Account
+                                </button>
+                            </a>
+                            <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdown01">
+                               <a class="dropdown-item" href="/settings"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                               <div class="dropdown-divider"></div>
+                               <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                           </div>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </nav>
+
+    <div class="flex-container">
+
+        <div  class="side-nav">
+            <ul class="nav flex-column" style="font-size:2em;">
+                <li class="nav-item">
+                    <a href="/"><img class="logo" src="resources/img/bird.gif"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-center" href="/dashboard" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- content -->
+        <div class="normal-pane-content">
+            <h2>Dashboard</h2>
+            <div id="monitor-heatmap" class="graph"></div>
+            <div class="row">
+                <div id="content-by-day-30" class="col"></div>
+                <div id="source-distribution" class="col"></div>
+            </div>
+            <div id="article-tag-cloud" class="graph"></div>
+        </div>
+ 
+        <!-- end content -->
+
+        <div>
+        </div>
+
+    </div>
+
+    <script src="vendor/popper.min.js"></script>
+    <script src="vendor/bootstrap.min.js"></script>
+    <script src="vendor/jquery-3.2.1.slim.js"></script>
+</body>
+
+</html>
