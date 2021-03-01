@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- mostly from https://codepen.io/QE4ever/pen/Rjmpjm -->
+<html>
+<head>
+<title>Holy Grail CSS</title>
+
+<style>
+
+body {
+    margin: 0;
+    background-color: aquamarine;
+    font-family: sans-serif;
+}
+
+.content {
+    display: grid;
+    grid-gap: 2px; /* to show layout */
+    grid-template-columns: 1fr 200px 200px 200px 200px 1fr;
+    grid-template-rows: 18px 1fr auto;
+    grid-template-areas:
+        "h h h h h h"
+        ". l m m r ."
+        "f f f f f f";
+    min-height: 100vh;
+    min-width: 430px;
+}
+
+@media screen and (max-width: 850px) and (min-width: 640px) {
+    .content {
+        grid-template-columns: 1fr 200px 200px 200px 1fr;
+        grid-template-rows: 18px auto 1fr auto;
+        grid-template-areas:
+            "h h h h h"
+            ". l m m ."
+            ". r m m ."
+            "f f f f f";
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content {
+        grid-template-columns: 1fr 200px 200px 1fr;
+        grid-template-rows: 18px auto 1fr auto;
+        grid-template-areas:
+            "h h h h"
+            ". m m ."
+            ". l r ."
+            "f f f f";
+    }
+}
+
+
+header {
+    grid-area: h;
+    background-color: white;
+    width: 100%;
+}
+
+left {
+    grid-area: l;
+    background-color: white;
+}
+
+right {
+    grid-area: r;
+    background-color: white;
+}
+
+main {
+    grid-area: m;
+    background-color: white;
+}
+
+footer {
+    grid-area: f;
+    background-color: lightgray;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="content">
+        <header>Header</header>
+        <left>Left</left>
+        <main>Main</main>
+        <right>Right</right>
+        <footer>Footer</footer>
+    </div>
+</body>
+
+</html>
