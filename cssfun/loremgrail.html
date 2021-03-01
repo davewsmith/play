@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- mostly from https://codepen.io/QE4ever/pen/Rjmpjm -->
+<html>
+<head>
+<title>Holy Grail CSS</title>
+
+<style>
+
+body {
+    margin: 0;
+    background-color: aquamarine;
+    font-family: sans-serif;
+}
+
+.content {
+    display: grid;
+    grid-gap: 2px; /* to show layout */
+    grid-template-columns: 1fr 200px 200px 200px 200px 1fr;
+    grid-template-rows: 18px 1fr auto;
+    grid-template-areas:
+        "h h h h h h"
+        ". l m m r ."
+        "f f f f f f";
+    min-height: 100vh;
+    min-width: 430px;
+}
+
+@media screen and (max-width: 850px) and (min-width: 640px) {
+    .content {
+        grid-template-columns: 1fr 200px 200px 200px 1fr;
+        grid-template-rows: 18px auto 1fr auto;
+        grid-template-areas: "h h h h h"
+                             ". l m m ."
+                             ". r m m ."
+                             "f f f f f";
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content {
+        grid-template-columns: 1fr 200px 200px 1fr;
+        grid-template-rows: 18px auto 1fr auto;
+        grid-template-areas: "h h h h"
+                             ". m m ."
+                             ". l r ."
+                             "f f f f";
+    }
+}
+
+
+header {
+    grid-area: h;
+    background-color: white;
+    width: 100%;
+}
+
+left {
+    grid-area: l;
+    background-color: white;
+}
+
+right {
+    grid-area: r;
+    background-color: white;
+}
+
+main {
+    grid-area: m;
+    background-color: white;
+}
+
+footer {
+    grid-area: f;
+    background-color: lightgray;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="content">
+        <header>Header</header>
+        <left>Left</left>
+        <main>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque laoreet suspendisse interdum consectetur libero. Vitae et leo duis ut. Tempor orci eu lobortis elementum nibh tellus molestie nunc non. Vitae nunc sed velit dignissim sodales ut. In nulla posuere sollicitudin aliquam ultrices sagittis orci a. Dolor purus non enim praesent elementum. Sed arcu non odio euismod lacinia at quis. Leo urna molestie at elementum. Tincidunt vitae semper quis lectus nulla at volutpat diam. Enim sit amet venenatis urna cursus eget nunc scelerisque viverra. Pharetra sit amet aliquam id diam maecenas ultricies. Cras fermentum odio eu feugiat pretium nibh. Amet aliquam id diam maecenas ultricies. Velit scelerisque in dictum non consectetur a erat nam. Tortor id aliquet lectus proin nibh. Purus non enim praesent elementum facilisis leo vel. Sollicitudin tempor id eu nisl nunc mi. Augue mauris augue neque gravida in fermentum et.</p>
+
+<p>Blandit libero volutpat sed cras ornare arcu dui vivamus. Placerat duis ultricies lacus sed turpis tincidunt id. In arcu cursus euismod quis viverra nibh cras pulvinar. Rhoncus dolor purus non enim. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra. Viverra adipiscing at in tellus integer feugiat. Accumsan lacus vel facilisis volutpat est velit egestas. Urna condimentum mattis pellentesque id nibh tortor id. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Ut eu sem integer vitae justo. Ornare quam viverra orci sagittis eu volutpat odio. Id volutpat lacus laoreet non curabitur gravida arcu. Aliquet nibh praesent tristique magna sit amet. Aliquet nec ullamcorper sit amet risus nullam eget felis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a. Nec ullamcorper sit amet risus. Tincidunt eget nullam non nisi est sit amet.</p>
+
+<p>Duis ultricies lacus sed turpis. Risus nec feugiat in fermentum. Odio facilisis mauris sit amet massa vitae tortor condimentum. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Diam in arcu cursus euismod quis viverra nibh. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Leo integer malesuada nunc vel risus commodo viverra maecenas. Mauris augue neque gravida in. Metus dictum at tempor commodo ullamcorper a. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Ullamcorper sit amet risus nullam eget felis eget nunc. Mauris commodo quis imperdiet massa. Commodo viverra maecenas accumsan lacus. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Non arcu risus quis varius quam quisque id diam. Sed adipiscing diam donec adipiscing tristique. Id porta nibh venenatis cras sed felis. Venenatis tellus in metus vulputate eu scelerisque felis. Tellus in metus vulputate eu scelerisque felis.</p>
+        </main>
+        <right>Right</right>
+        <footer>Footer</footer>
+    </div>
+</body>
+
+</html>
