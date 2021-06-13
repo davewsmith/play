@@ -1,0 +1,14 @@
+{
+  "name": "@tejasmanohar/hello-cola",
+  "main": "f295aeb925d53fc2@160.js",
+  "version": "160.0.0",
+  "homepage": "https://observablehq.com/@tejasmanohar/hello-cola",
+  "author": {
+    "name": "Tejas Manohar",
+    "url": "https://observablehq.com/@tejasmanohar"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

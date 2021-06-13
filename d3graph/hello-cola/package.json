@@ -1,0 +1,14 @@
+{
+  "name": "@mbostock/hello-cola",
+  "main": "1d57b58249fb0a1f@68.js",
+  "version": "68.0.0",
+  "homepage": "https://observablehq.com/@mbostock/hello-cola",
+  "author": {
+    "name": "Mike Bostock",
+    "url": "https://observablehq.com/@mbostock"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
