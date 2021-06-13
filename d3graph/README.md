@@ -6,27 +6,25 @@ The stuff here is mostly Not My Code.
 
 ## Examples from Observable
 
+These are all
+
+    cd $dir; python3 -m http.server
+
+then open `http://localhost:8000/
+
 These might require a force-reload from the browser to defeat caching.
 
 ### Force-layout example
 
-    cd force-directed-graph; python -m http.server
-
-then open `http://localhost:8000/`
+The canonical example. Helps somewhat to have read _Les Misérables._
 
 ### Cola example
 
-    cd hello-cola; python -m http.server
-
-then open http://localhost:8000/
+Canonical modified to use a different layout algorithm
 
 ### https://observablehq.com/@tejasmanohar/hello-cola
 
-This one has labels. Close to what I need.
-
-    cd hello-cola2; python -m http/server
-
-then open http://localhost:8000/
+This one has labels. Closer to what I need.
 
 ## References
 
