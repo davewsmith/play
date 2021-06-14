@@ -30,6 +30,12 @@ https://observablehq.com/@tejasmanohar/hello-cola
 
 This one has labels. Closer to what I need.
 
+## force-directed-layout-with-labels
+
+From https://bl.ocks.org/heybignick/3faf257bbbbc7743bb72310d03b86ee8
+
+Even closer!
+
 ## References
 
 * https://observablehq.com/@d3/force-directed-graph
@@ -39,7 +45,6 @@ This one has labels. Closer to what I need.
 A queue of examples to examine
 
 * https://bl.ocks.org/steveharoz/8c3e2524079a8c440df60c1ab72b5d03
-* https://bl.ocks.org/heybignick/3faf257bbbbc7743bb72310d03b86ee8
 * https://bl.ocks.org/jhb/5955887
 * https://towardsdatascience.com/leverage-on-d3-js-v4-to-build-a-network-graph-for-tableau-with-ease-cc274cba69ce
 
