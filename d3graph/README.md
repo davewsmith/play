@@ -22,7 +22,7 @@ The canonical example. Helps somewhat to have read _Les Misérables._
 
 ### hello-cola
 
-Canonical modified to use a different layout algorithm
+Canonical example modified to use a different layout algorithm
 
 ### hello-cola2
 
@@ -36,5 +36,14 @@ This one has labels. Closer to what I need.
 
 ## TO DO
 
+A queue of examples to examine
+
 * https://bl.ocks.org/steveharoz/8c3e2524079a8c440df60c1ab72b5d03
+* https://bl.ocks.org/heybignick/3faf257bbbbc7743bb72310d03b86ee8
+* https://bl.ocks.org/jhb/5955887
+* https://towardsdatascience.com/leverage-on-d3-js-v4-to-build-a-network-graph-for-tableau-with-ease-cc274cba69ce
+
+A tutorial!
+
+* https://www.youtube.com/watch?v=UYrJ4jukvig&list=PLPtgdQ4YE9cgdPwOKShhPHdVEseLPGd_t
 
