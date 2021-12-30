@@ -1,6 +1,11 @@
 from flask import Flask, send_from_directory
+from flask_restful import Api
+
+from api import Ticker
+
 
 app = Flask(__name__)
+api = Api(app)
 
 
 @app.route('/')
@@ -17,10 +22,5 @@ def serve_css(path):
 def serve_js(path):
     return send_from_directory('static/js/', path)
 
-ticker = 0
 
-@app.route('/api/tick')
-def tick():
-    global ticker
-    ticker = ticker + 1
-    return {'tick': ticker}
+api.add_resource(Ticker, '/api/tick')

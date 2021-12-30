@@ -1,5 +1,5 @@
 # TO DO
 
- * replace /api/tick with something backed by `flask_restful`
+ * Flesh out a UI with components
 
 
