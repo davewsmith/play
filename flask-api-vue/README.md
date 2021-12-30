@@ -1,6 +1,7 @@
 # Flask/API/Vue.js
 
-Proof of concept thing.
+Proof of concept of a Vue 3 app serviced by a local API.
+Or, how far can I push this without needing a JavaScript build stack?
 
 ## Setup
 
@@ -8,8 +9,8 @@ Proof of concept thing.
     . venv/bin/activate
     pip install -r requirements.txt
 
-This should change once I upgrade from Ubuntu 18.04 and get a newer Python (with venv).
+This'll move to `python 3 -m venv` once I upgrade from Ubuntu 18.04 and get a newer Python.
 
-## Run
+## To Run
 
     ./run
