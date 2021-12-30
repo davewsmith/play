@@ -1,6 +1,6 @@
 # Flask/API/Vue.js
 
-Proof of concept of a Vue 3 app serviced by a local API.
+Proof of concept of a Vue 3 app that makes calls to a Flask API server.
 Or, how far can I push this without needing a JavaScript build stack?
 
 ## Setup
