@@ -6,8 +6,12 @@ let app = Vue.createApp({
     },
     mounted() {
         setInterval(() => {
-            this.count++;
-        }, 1000);
+            fetch('/api/tick')
+            .then(response => response.json())
+            .then(jsonResponse => {
+                this.count = jsonResponse['tick'];
+            });
+        }, 2000);
     },
     template: "#app-template"
 });
