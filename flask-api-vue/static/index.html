@@ -13,6 +13,27 @@
 
 <script id="app-template" type="template">
     <p>Loaded {{ count }} ticks ago.</p>
+    <vue-table
+        :header-columns="['A', 'B', 'C']"
+        :items="[[1,2,3],[4,5,6]]"
+    ></vue-table>
+</script>
+
+<script id="vue-table-row-template" type="template">
+    <tr>
+        <td v-for="column in item">{{ column }}</td>
+    </td>
+</script>
+
+<script id="vue-table-template" type="template">
+    <table>
+        <thead>
+            <th v-for="column in headerColumns">{{ column }}</th>
+        </thead>
+        <tbody>
+            <tr v-is="tableRowComponent" v-for="item in items" :item="item"></tr>
+        </tbody>
+    </table>
 </script>
 
 <script type="module" src="/js/app.js"></script>

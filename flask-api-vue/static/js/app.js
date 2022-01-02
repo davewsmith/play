@@ -1,3 +1,5 @@
+import {addTableComponent} from"./vue-table.js";
+
 let app = Vue.createApp({
     data() {
         return {
@@ -29,4 +31,9 @@ let app = Vue.createApp({
     },
     template: "#app-template"
 });
+
+addTableComponent(app);
+
 let vm = app.mount('#app');
+
+
