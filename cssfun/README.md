@@ -11,4 +11,5 @@ getting a responsive header, sidebar, content area, and footer to play together.
   * [loremgrail.html](loremgrail.html) pushes the footer below the bottom
   * [stickygrail.html](stickygrail.com) does the same, but with a sticky header (a one line change!)
 
+  * [app.html](app.html) is a generic app layout, made easy by CSS Grid!
 
