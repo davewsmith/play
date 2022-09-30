@@ -1,5 +1,5 @@
 """
-Pull data from a PurpleAir sensor and dump some interesting bits
+Pull data from a PurpleAir sensor and augment it with AQI
 """
 
 import json
@@ -22,7 +22,7 @@ def sensor_data(sensor_id):
         headers=headers)
     if r.status_code == 200:
         return r.json()
-    # TODO; error handling
+    # TODO: error handling
     # print(json.dumps(r.json(), indent=2))
     return {
         "error": r.status_code,
