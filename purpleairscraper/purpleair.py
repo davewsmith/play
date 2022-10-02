@@ -49,6 +49,22 @@ def pm25_to_aqi(pm25):
     return (int(aqi), bp[4], bp[5])
 
 
+def add_derived_aqi(sensor_data):
+    """
+    Augment sensor data with derived AQI
+
+    Does nothing if the data indicates an error.
+    Mutates the data in place
+    """
+    if 'error' not in sensor_data:
+        sensor = sensor_data["sensor"]
+        aqi, category, color = pm25_to_aqi(sensor["pm2.5"])
+        sensor["aqi"] = aqi
+        sensor["category"] = category
+        # TODO: downgrade color if data is stale
+        sensor["category_color"] = color
+
+
 if __name__ == '__main__':
     """
     for i in range(252):
@@ -62,14 +78,6 @@ if __name__ == '__main__':
         os.exit(1)
 
     data = sensor_data(sensor_id)
-
-    if 'error' not in data:
-        sensor = data["sensor"]
-        temperature = sensor["temperature"]
-        aqi, category, color = pm25_to_aqi(sensor["pm2.5"])
-        sensor["aqi"] = aqi
-        sensor["category"] = category
-        # TODO: downgrade color if data is stale
-        sensor["category_color"] = color
+    add_derived_aqi(data)
 
     print(json.dumps(data, indent=2))
