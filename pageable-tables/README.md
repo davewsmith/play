@@ -4,6 +4,11 @@ Working through the details of getting pagination to behave the way I want for a
 
 Overkill, but hey.
 
+## TO DO
+
+  * Search that persists across page navigation, and 'reset' when the search term changes
+  * Sortable fields that persist
+
 ## Setup
 
     python3 -m venv venv
