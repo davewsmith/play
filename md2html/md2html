@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -e venv ]; then
+    . venv/bin/activate
+else
+    python3 -m venv venv
+    . venv/bin/activate
+    pip install -q --upgrade pip
+    pip install -q -r requirements.txt
+fi
+
+python md2html.py $@

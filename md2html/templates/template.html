@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<style>
+body {
+    margin: 0;
+    padding: 10px 10px 10px 10px;
+    font-family: sans-serif;
+}
+pre {
+    font-family: monospace;
+}
+pre:has(code) {
+    padding-top: 0.5em; padding-bottom: 0.5em;
+    background-color: #ccc;
+}
+p code {
+    background-color: #ccc;
+}
+code {
+    padding-left: 0.5em; padding-right: 0.5em;
+}
+</style>
+</head>
+<body>
+<div class="content">
+{{ body|safe }}
+</div>
+</body>
+</html>
