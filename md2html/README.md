@@ -1,6 +1,7 @@
 # Convert Markdown to HTML
 
-Scratching a particular itch.
+Wrap converted Markdown in a template.
 
+## Usage
 
     ./md2html input.md output.html
