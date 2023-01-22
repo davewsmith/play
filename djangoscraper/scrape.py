@@ -41,23 +41,14 @@ def login(session):
             'X-CSRFToken': resp.cookies['csrftoken'],
         },
     )
-    print(f'POST {login_url} -> {resp.status_code}')
-    if resp.status_code == 200:
-        print('logged in')
-        # print()
-        # print(resp.text)
-        # print()
-    else:
-        print(resp.text)
-        assert False
+    # print(f'POST {login_url} -> {resp.status_code}')
+    assert resp.status_code == 200
 
 
 def logout(session):
     resp = session.get(logout_url)
-    if resp.status_code != 200:
-        print(f'logout returned a {resp.status_code}')
-    else:
-        print('logged out')
+    # print(f'GET {logout_url} -> {resp.status_code}')
+    assert resp.status_code == 200
 
 
 @contextmanager
