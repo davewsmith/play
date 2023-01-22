@@ -3,7 +3,7 @@
 
 This provides a context manager, `logged_in_session` that on
 entry will log in to a Django site that is protected by the csrf
-middleware, then log out on exit.
+middleware, then log out on exit. It provides a `requests.session()`.
 
     from djangoscraper import logged_in_session
 
