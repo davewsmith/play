@@ -1,6 +1,14 @@
 # DjangoScraper
 
-Working out how to get through CSRF to log into a django app
+
+This provides a context manager, `logged_in_session` that on
+entry will log in to a Django site that is protected by the csrf
+middleware, then log out on exit.
+
+    from djangoscraper import logged_in_session
+
+    with logged_in_session() as session:
+        ... go wild with session
 
 ## Setup
 
