@@ -26,7 +26,17 @@ username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
 
 
-def login(session):
+@contextmanager
+def logged_in_session():
+    session = requests.session()
+    _login(session)
+    try:
+        yield session
+    finally:
+        _logout(session)
+
+
+def _login(session):
     resp = session.get(login_url)
     # print(f'GET {login_url} -> {resp.status_code}')
     assert resp.status_code == 200
@@ -37,7 +47,11 @@ def login(session):
             'password': password,
         },
         headers = {
+            # N.B., Django's csrf middleware requires a valid referer
             'Referer': base_url,
+            # N.B., Django inserts a hidden csrfmiddlewaretoken element into a
+            #  form, but will fall back on this header if the form element isn't
+            #  present. So pretend it isn't present.
             'X-CSRFToken': resp.cookies['csrftoken'],
         },
     )
@@ -45,20 +59,10 @@ def login(session):
     assert resp.status_code == 200
 
 
-def logout(session):
+def _logout(session):
     resp = session.get(logout_url)
     # print(f'GET {logout_url} -> {resp.status_code}')
     assert resp.status_code == 200
-
-
-@contextmanager
-def logged_in_session():
-    session = requests.session()
-    resp = login(session)
-    try:
-        yield session
-    finally:
-        logout(session)
 
 
 if __name__ == '__main__':
