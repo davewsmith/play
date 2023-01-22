@@ -1,3 +1,15 @@
+"""
+A context manager for logging into a Django site that is protected by
+the Django csrf middleware.
+
+Assuming .env is set with correct values
+
+    with logged_in_session() as session:
+        ...
+
+will provide a logged-in context that logs out on context exit.
+"""
+
 from contextlib import contextmanager
 import os
 
@@ -18,7 +30,6 @@ def login(session):
     resp = session.get(login_url)
     # print(f'GET {login_url} -> {resp.status_code}')
     assert resp.status_code == 200
-    # print(f'login headers: {resp.headers!r}')
 
     resp = session.post(
         login_url, data = {
@@ -27,7 +38,6 @@ def login(session):
         },
         headers = {
             'Referer': base_url,
-            'HTTP-Referer': base_url,
             'X-CSRFToken': resp.cookies['csrftoken'],
         },
     )
@@ -54,21 +64,13 @@ def logout(session):
 def logged_in_session():
     session = requests.session()
     resp = login(session)
-    # print(f'initial cookies: {session.cookies!r}')
     try:
         yield session
     finally:
         logout(session)
-    # print(f'remaining cookies: {session.cookies!r}')
 
 
 if __name__ == '__main__':
     with logged_in_session() as session:
         resp = session.get(base_url)
-        if resp.status_code == 200:
-            # content = resp.content.decode('utf-8')
-            # print(content)
-            print(f'GET {base_url} -> {resp.status_code}')
-        else:
-            print(f'GET {base_url} -> {resp.status_code}')
-    
+        print(f'GET {base_url} -> {resp.status_code}')
