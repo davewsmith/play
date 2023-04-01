@@ -13,3 +13,4 @@ The example from the docs overlays the legend on the title. Oops.
 ## References
 
 * [Apache ECharts](https://echarts.apache.org/)
+* [Examples](https://echarts.apache.org/examples/en/index.html)
