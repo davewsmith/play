@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ ! -e echarts.js ]; then
-    curl https://github.com/apache/echarts/blob/5.4.2/dist/echarts.js -o echarts.js
+    # curl https://github.com/apache/echarts/raw/5.4.2/dist/echarts.js -o echarts.js
+    curl https://raw.githubusercontent.com/apache/echarts/5.4.2/dist/echarts.js -o echarts.js
 fi
 
 python3 -m http.server
