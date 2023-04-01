@@ -4,7 +4,7 @@ What's this? A new (to me) charting package? Let's play!
 
     ./run
 
-Starts things up. Then [http://localhost:8000/](browse).
+Starts things up. Then [http://localhost:8000/](browse)
 
 ## Notes
 
