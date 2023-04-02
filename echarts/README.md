@@ -8,7 +8,7 @@ Starts things up. Then [http://localhost:8000/](browse)
 
 ## Notes
 
-The example from the docs overlays the legend on the title. Oops.
+The example from the docs overlays the legend on the title. Oops. (Widening the div fixed it.)
 
 ## References
 
