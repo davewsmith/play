@@ -18,7 +18,7 @@ insert into one (id, data) values (1, 'base');
 insert into many (id, one_id, data) values(1, 1, 'first of many');
 insert into many (id, one_id, data) values(2, 1, 'second of many');
 
-select 'pragma foreign_keys' from one;
+select 'pragma foreign_keys';
 pragma foreign_keys;
 
 select 'many before delete of one', count(*) from many;
