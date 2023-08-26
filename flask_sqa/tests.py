@@ -61,6 +61,7 @@ class OneToManyTests(TestCase):
         db.session.add(one)
         db.session.commit()
 
+        self.assertEqual(2, ManyOfOne.query.count())
         one_retrieved = db.session.get(One, 1)
         self.assertEqual(2, len(one_retrieved.many))
 
@@ -85,10 +86,32 @@ class OneToManyTests(TestCase):
         many = db.session.get(ManyOfOne, 2)
         self.assertIsNone(many.one_id)
 
-    def testeOneToManyDeletingOneOfMany(self):
+    def testOneToManyDeletingOneOfMany(self):
         one = One(data='one')
         one.many.append(ManyOfOne(data='first'))
         one.many.append(ManyOfOne(data='second'))
         db.session.add(one)
         db.session.commit()
         self.assertEqual(2, ManyOfOne.query.count())
+
+        one_of_many = db.session.get(ManyOfOne, 2)
+        db.session.delete(one_of_many)
+        db.session.commit()
+        self.assertEqual(1, ManyOfOne.query.count())
+
+        one_retrieved = db.session.get(One, 1)
+        self.assertEqual(1, len(one_retrieved.many)) 
+ 
+    def testDeletingOneCascadesToDeleteOfMany(self):
+        one = One(data='one')
+        one.many.append(ManyOfOne(data='first'))
+        one.many.append(ManyOfOne(data='second'))
+        db.session.add(one)
+        db.session.commit()
+        self.assertEqual(2, ManyOfOne.query.count())
+
+        one_retrieved = db.session.get(One, 1)
+        db.session.delete(one)      
+        db.session.commit()
+        self.assertEqual(0, One.query.count())
+        self.assertEqual(0, ManyOfOne.query.count())

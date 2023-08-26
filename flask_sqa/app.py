@@ -12,13 +12,17 @@ app = Flask(__name__)
 app.config.from_object(TestConfig)
 db.init_app(app)
 
-# Enable foreign key support so that deletes will cascade
-from sqlalchemy import event
-from sqlalchemy.engine import Engine
+if app.config['SQLALCHEMY_DATABASE_URI'].startswith('sqlite'): 
+    # Enable SQLite3 foreign key support so that deletes will cascade.
+    #
+    # The need for this is SQLite version dependent! See
+    # https://www.sqlite.org/pragma.html#pragma_foreign_keys
 
-@event.listens_for(Engine, "connect")
-def _set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON;")
-    cursor.close()
+    from sqlalchemy import event
+    from sqlalchemy.engine import Engine
 
+    @event.listens_for(Engine, "connect")
+    def _set_sqlite_pragma(dbapi_connection, connection_record):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA foreign_keys=ON;")
+        cursor.close()

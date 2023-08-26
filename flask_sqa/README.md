@@ -2,7 +2,7 @@
 
 Motivated by wanting to have something within reach to
 remind myself of how to do a few things, such as getting
-foreign keys working in SQLite3
+foreign keys with cascading deletes working in SQLite3.
 
 ## Setup
 
@@ -12,7 +12,9 @@ Assuming `vagrant` and `virtualbox` are installed,
 
 builds an Ubuntu 20.04 VM
 
-## Running the examples
+## Running the code
+
+The tests are where it's at here.
 
     vagrant ssh
     cd /vagrant
