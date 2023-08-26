@@ -1,5 +1,7 @@
 # TODO
 
+  * (Maybe) Switch to application factory (`create_app`)
+
   * one db.Model
     * create one row
     * prove in a test that we can query it
