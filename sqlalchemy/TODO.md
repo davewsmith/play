@@ -1,10 +1,5 @@
 # TODO
 
-  * Actually instantiate SQLAlchemy and Flask.
-    * use an in-memory SQLite3 database
-    * configure the DB to honor foreign keys
-    * N.B. This may require switching to `flask_testing.TestCase`.
-
   * one db.Model
     * create one row
     * prove in a test that we can query it
