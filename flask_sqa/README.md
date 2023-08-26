@@ -10,7 +10,27 @@ Assuming `vagrant` and `virtualbox` are installed,
 
     vagrant up
 
-builds an Ubuntu 20.04 VM
+builds an Ubuntu 20.04 VM with a virtual environment (venv)
+in `/home/vagrant/venv`
+
+Dependencies aren't pinned; as of my last `vagrant up`, they were
+
+    vagrant@ubuntu-focal:/vagrant$ /home/vagrant/venv/bin/pip freeze -l
+    blinker==1.6.2
+    click==8.1.7
+    Flask==2.3.3
+    Flask-SQLAlchemy==3.0.5
+    Flask-Testing==0.8.1
+    greenlet==2.0.2
+    importlib-metadata==6.8.0
+    itsdangerous==2.1.2
+    Jinja2==3.1.2
+    MarkupSafe==2.1.3
+    pkg_resources==0.0.0
+    SQLAlchemy==2.0.20
+    typing_extensions==4.7.1
+    Werkzeug==2.3.7
+    zipp==3.16.2
 
 ## Running the code
 
