@@ -70,3 +70,7 @@ But when interacting directly with SQLite3, the pragma has effect.
 	many after delete of one|0
 	sqlite> 
 
+## References
+
+  * https://docs.sqlalchemy.org/en/20/orm/cascades.html which notes deprecations and intents to
+    change behavior in the future.
