@@ -3,17 +3,16 @@ from flask_testing import TestCase
 from app import db, app
 
 
-
 class One(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(128))
     many = db.relationship('ManyOfOne', backref='one', cascade="all, delete")
 
+
 class ManyOfOne(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     one_id = db.Column(db.Integer, db.ForeignKey('one.id'))
     data = db.Column(db.String(128))
-    
 
 
 class OneToManyTests(TestCase):
