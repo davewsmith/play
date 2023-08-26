@@ -1,0 +1,6 @@
+# Known to work with Ubuntu 18.04
+Flask==1.1.2
+Flask-SQLAlchemy==2.4.4
+Flask-Testing==0.8.0
+
+
