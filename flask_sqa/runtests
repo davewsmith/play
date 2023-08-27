@@ -1,1 +1,1 @@
-/home/vagrant/venv/bin/python -m unittest discover -p "tests.py"
+/home/vagrant/venv/bin/python -m unittest discover -p "test_*.py"
