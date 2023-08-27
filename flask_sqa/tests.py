@@ -15,7 +15,7 @@ class ManyOfOne(db.Model):
     data = db.Column(db.String(128))
 
 
-class OneToManyTests(TestCase):
+class FlaskSQLAlchemyTestCase(TestCase):
 
     def create_app(self):
         return app
@@ -26,6 +26,9 @@ class OneToManyTests(TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+
+class OneToManyTests(FlaskSQLAlchemyTestCase):
 
     def testDatabaseHookup(self):
         # Smoke test the database connection
@@ -114,3 +117,37 @@ class OneToManyTests(TestCase):
         db.session.commit()
         self.assertEqual(0, One.query.count())
         self.assertEqual(0, ManyOfOne.query.count())
+
+
+class Thing(db.Model):
+    """A thing that might hold an external resource"""
+    id = db.Column(db.Integer, primary_key=True)
+
+capture = {}
+
+from sqlalchemy import event
+@event.listens_for(Thing, 'before_delete')
+def receive_before_delete(mapper, connection, target):
+    capture['deleted'].append(target.id)
+
+
+class EventTest(FlaskSQLAlchemyTestCase):
+
+    def setUp(this):
+        capture['deleted'] = []
+        super().setUp()
+
+    def testBeforeDeleteEvent(self):
+        """Prove that the before_delete event is hooked up"""
+
+        self.assertEqual([], capture['deleted'])
+
+        thing = Thing()
+        db.session.add(thing)
+        db.session.commit()
+
+        thing_id = thing.id
+
+        db.session.delete(thing)
+        db.session.commit()
+        self.assertEqual([thing_id], capture['deleted'])

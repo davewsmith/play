@@ -4,6 +4,8 @@ Motivated by wanting to have something within reach to
 remind myself of how to do a few things, such as getting
 foreign keys with cascading deletes working in SQLite3.
 
+Also an example of handling a `before_delete` event.
+
 ## Setup
 
 Assuming `vagrant` and `virtualbox` are installed,
