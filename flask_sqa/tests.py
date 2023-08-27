@@ -127,8 +127,9 @@ capture = {}
 
 from sqlalchemy import event
 @event.listens_for(Thing, 'before_delete')
-def receive_before_delete(mapper, connection, target):
+def thing_before_delete(mapper, connection, target):
     capture['deleted'].append(target.id)
+    # In real life we might fire of an async task to do cleanup
 
 
 class EventTest(FlaskSQLAlchemyTestCase):
