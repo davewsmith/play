@@ -12,7 +12,7 @@ Copy `env.template` to `.env` and fill it in with PurpleAir API keys.
 
 Then, to scape data
 
-    venv/bin/python purpleair.py SENSOR_ID > data.json
+    ./purpleair.py SENSOR_ID > data.json
 
 If the JSON returned from the PurpleAir API does not contain an 'error' key,
 the 'sensor' block is augmented with a few new keys.

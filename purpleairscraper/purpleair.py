@@ -1,3 +1,5 @@
+#!venv/bin/python3
+
 """
 Pull data from a PurpleAir sensor and augment it with AQI
 """
