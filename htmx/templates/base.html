@@ -2,14 +2,13 @@
 <html>
 <head>
 <title>HTMX test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<script src="{{ url_for('static', filename='htmx.min.js') }}"></script>
 </head>
 
 <body>
 {% block content %}
-<p>Watch this space</p>
 {% endblock %}
-
-<script></script>
 </body>
 </html>

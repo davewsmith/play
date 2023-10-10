@@ -10,3 +10,9 @@ Kicking the tires on htmx
 ## Running
 
     ./run
+
+## References
+
+  * https://htmx.org/
+  * https://github.com/PyHAT-stack/awesome-python-htmx (bunch of options)
+  * https://github.com/edmondchuc/flask-htmx
