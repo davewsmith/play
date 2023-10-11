@@ -1,6 +1,11 @@
 ## TODO
 
-  * Lots
+  * A simple form example
+    - see https://stackoverflow.com/questions/70043237/how-do-we-make-a-htmx-response-trigger-a-form-reset
+  * An example of triggering htmx from JS
+  * An example of calling JS from htmx
+  * A progress spinner that replaces itself with final status
+  * Can htmx be made to play with a web worker?
 
 ## Round 0
 
