@@ -19,5 +19,10 @@ def clicked():
     return render_template('example1-clicked.html')
 
 
+@app.route('/example2')
+def example2():
+    return render_template('example2.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

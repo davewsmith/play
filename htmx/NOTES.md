@@ -4,7 +4,6 @@
     - see https://stackoverflow.com/questions/70043237/how-do-we-make-a-htmx-response-trigger-a-form-reset
   * An example of triggering htmx from JS
   * An example of calling JS from htmx
-  * A progress spinner that replaces itself with final status
   * Can htmx be made to play with a web worker?
 
 ## Round 0
@@ -24,3 +23,7 @@ Well, yes. The Flask I pinned to has a security issue that
 hasn't been backported to Python 3.6.9. And yes, that particular
 problem goes away once I upgrade one of my laptops of 18.04 LTS.
 For the meantime, unpin the dependency.
+
+## Round 1
+
+Show how to wait for something the backend is doing to finish.
