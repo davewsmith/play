@@ -1,5 +1,6 @@
 ## TODO
 
+  * Read up on what `hx-swap` does and doesn't guarantee
   * A simple form example
     - see https://stackoverflow.com/questions/70043237/how-do-we-make-a-htmx-response-trigger-a-form-reset
   * An example of triggering htmx from JS
@@ -26,9 +27,7 @@ For the meantime, unpin the dependency.
 
 ## Round 1
 
-Show how to wait for something the backend is doing to finish.
-
-Cribbing from https://htmx.org/examples/progress-bar/
+A progress spinner, cribbed mostly from https://htmx.org/examples/progress-bar/
 
 The transcription from the example required one minor change:
 I'd misunderstood `hx-swap`, and thought that a stable ID on the spinner
