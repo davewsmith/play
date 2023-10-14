@@ -1,12 +1,5 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div hx-target="this" hx-swap="outerHTML">
-    <h3>Start me up</h3>
-    <button hx-post="/example2-start">
-        Click me
-    </button>
-</div>
-
+{{ html|safe }}
 {% endblock %}

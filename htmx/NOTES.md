@@ -27,3 +27,16 @@ For the meantime, unpin the dependency.
 ## Round 1
 
 Show how to wait for something the backend is doing to finish.
+
+Cribbing from https://htmx.org/examples/progress-bar/
+
+The transcription from the example required one minor change:
+I'd misunderstood `hx-swap`, and thought that a stable ID on the spinner
+meant that it would be left as-is during the swap, but the animation was
+restarting at every swap. The obvious fix was to hoist the spinner out
+of the swap target.
+
+Already seeing how HTMX with Flask either fills views full of HTMX fragements,
+or requires templates holding fragements, which makes it harder to
+reason about chains of activities.
+
