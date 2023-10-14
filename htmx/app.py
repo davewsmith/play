@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import Response
 
 app = Flask(__name__)
 
@@ -26,10 +27,11 @@ def example2():
 
 @app.route('/example2-start', methods=['POST'])
 def example2_start():
-    return """
+    resp = Response("""
 <h3>Started</h3>
 <span class="loader"></span>
-"""
+""")
+   return resp
 
 
 
