@@ -39,3 +39,22 @@ Already seeing how HTMX with Flask either fills views full of HTMX fragments,
 or requires templates holding fragements, which makes it harder to
 reason about chains of activities.
 
+## Interregnum 1
+
+An initial side-trip into understanding hx-swap
+
+Key bits:
+
+  * [handleAjaxResponse](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L2983)
+  * [getSwapSpecification](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L2307)
+  * [selectAndSwap](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L1080)
+  * [swap](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L1006)
+  * [swapInnerHTML](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L972)
+
+'morph' attempts to merge into the existing DOM rather than replacing bits,
+but there's at least one open issue against it.
+
+  * [swapMorph](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L985)
+
+Looking over the open issues...
+
