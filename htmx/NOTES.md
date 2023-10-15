@@ -1,6 +1,7 @@
+# NOTES as I explore [HTMX](https://htmx.org/)
+
 ## TODO
 
-  * Read up on what `hx-swap` does and doesn't guarantee
   * A simple form example
     - see https://stackoverflow.com/questions/70043237/how-do-we-make-a-htmx-response-trigger-a-form-reset
   * An example of triggering htmx from JS
@@ -9,7 +10,7 @@
 
 ## Round 0
 
-Get the basic plumbing in place with one working example.
+Got the basic plumbing in place with one working example.
 
 Noting from the outset that there are a few options for Flask
 that add server-side htmx affordances. Not going there yet.
@@ -36,8 +37,9 @@ restarting at every swap. The fix was to hoist the spinner out
 of the swap target.
 
 Already seeing how HTMX with Flask either fills views full of HTMX fragments,
-or requires templates holding fragements, which makes it harder to
-reason about chains of activities.
+or requires a `templates` directory full of fragements,
+which I expect would make it harder to reason about chains of activities.
+But it may be that a progress spinner is kind of worst-case for that.
 
 ## Interregnum 1
 
@@ -56,5 +58,5 @@ but there's at least one open issue against it.
 
   * [swapMorph](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L985)
 
-Looking over the open issues... A bit of a log jam on PRs, too.
+Looking over the open issues... There are quite a few. A bit of a log jam on PRs, too.
 
