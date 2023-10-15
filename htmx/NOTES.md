@@ -23,7 +23,8 @@ that won't be far.
 
 Well, nuts. The Flask I pinned to has a security issue that
 hasn't been backported to a Flask version that supports Python 3.6.9.
-And yes, that particular problem goes away once I upgrade one of my laptops of 18.04 LTS.
+And yes, that particular problem goes away once I upgrade my
+scratch laptop from Ubuntu 18.04 LTS to something more modern.
 For the meantime, unpin the dependency.
 
 ## Round 1
