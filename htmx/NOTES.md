@@ -56,5 +56,5 @@ but there's at least one open issue against it.
 
   * [swapMorph](https://github.com/bigskysoftware/htmx/blob/htmx-2.0/src/htmx.js#L985)
 
-Looking over the open issues...
+Looking over the open issues... A bit of a log jam on PRs, too.
 
