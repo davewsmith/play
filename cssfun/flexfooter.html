@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flex footer</title>
+<meta name="viewport" content="width=device-width">
+<style>
+body { margin: 0; min-height: 100dvh; }
+body { font-family: Arial, sans-serif; }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  /* flex-basis: 100vh; -- nope */
+  /* flex-basis: 100%; -- nope */
+  height: 100dvh; /* yup */
+}
+
+#content {
+  /* flex-basis: 100%; -- not needed */
+  flex-grow: 1;
+  padding: 0 1em 0 1em;
+}
+
+#footer {
+  flex-basis: 0px;
+  padding: 0 1em 0 1em;
+  border-top: 1px solid gray;
+  background-color: #eee;
+}
+
+</style>
+</head>
+
+<body>
+<div id="container">
+
+  <div id="content">
+    <h1>content</h1>
+    <p>
+      I'm the main content area, and I fill the top part of the page.
+    </p>
+  </div>
+
+  <div id="footer">
+    <h4>footer</h4>
+    <p>I'll grow depending on what's in the footer.</p>
+  </div>
+
+</div>
+</body>
+
+</html>
+
