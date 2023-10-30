@@ -1,4 +1,4 @@
-# Redis experiments
+# Redis Playground
 
 Playing around with Redis
 
