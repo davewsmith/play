@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title>Nav</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    margin: 0;
+}
+
+#start {
+    padding: 1em;
+}
+
+#heading {
+    padding: 1em;
+}
+</style>
+</head>
+<body>
+<div id="start">
+<button id="start-nav">Start Nav</button>
+</div>
+<div id="heading"></div>
+<script>
+
+function setHeading(s) {
+    let headingEl = document.querySelector("#heading");
+    headingEl.innerHTML = s.toString();
+}
+
+function orientationHandler(e) {
+    let compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+    let headingEl = document.querySelector("#heading");
+    setHeading(compass);
+}
+
+function startCompass() {
+    window.addEventListener("deviceorientationabsolute", orientationHandler, true);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setHeading("Waiting...");
+    var startNav = document.querySelector("#start-nav");
+    startNav.addEventListener("click", startCompass);
+}, false);
+</script>
+</body>
+</html>
+
