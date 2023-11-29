@@ -12,5 +12,5 @@ Someplace running `tailscale`, do
 
 Then
 
-    http://tailscale-node:5000/index.html
+    http://tailscale-node:5000/nav.html
 
