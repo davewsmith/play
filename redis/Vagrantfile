@@ -2,10 +2,9 @@
 
 $provision = <<SCRIPT
 sudo apt-get update
-
-sudo apt-get install -y python-virtualenv redis-server
+sudo apt-get install -y python3.8-venv redis-server
 cd /vagrant
-virtualenv --python=python3 venv
+python3 -m venv venv
 venv/bin/pip install redis
 
 echo ":set hlsearch noincsearch noai sw=4 ts=40" >> ~/.vimrc
@@ -14,12 +13,12 @@ SCRIPT
 
 
 Vagrant.configure("2") do |config|
-    config.vm.define "RedisExperiment"
-    config.vm.box = "ubuntu/xenial64"
+    config.vm.define "RedisPlaygound"
+    config.vm.box = "ubuntu/focal64"  # 20.04 LTS
     config.vm.network "forwarded_port", guest: 5000, host: 5000
 
     config.vm.provider "virtualbox" do |vb|
-        vb.name = "RedisExperiment"
+        vb.name = "RedisPlayground"
         vb.memory = 1024
         vb.cpus = 1
     end
