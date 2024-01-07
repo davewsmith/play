@@ -13,7 +13,7 @@ def makehtml(css_path):
     # Open the .css file name find the template
     with css_path.open() as f:
         css = f.read()
-    m = re.match(r'/\* (\S+) \*/', css)
+    m = re.match(r'/\* template: (\S+) \*/', css)
     assert m is not None, f"{str(css_path)} doesn't name a template"
     t = Path(m.group(1))
     assert t.exists(), f"{str(css_path)} names {str(t)}, which doesn't exist"
