@@ -1,21 +1,14 @@
 # WebApp CSS experiments
 
-Each `*.css` file is expected to include a comment naming an HTML template.
-E.g.,
+Trying out combinations of templates and stylesheets.
 
-    /* simple.template */
-    .body { color: salmonl }
+To reduce the need to make duplicate changes across multiple templates or multiple stylesheets, we merge the two before viewing.
 
-Each such template is expected to include
+    ./merge.py template stylesheet > result.html
 
-    <style>
-    <!-- CSS -->
-    </style>
+merges a stylesheet into a template by locating `<style></style>` in the template and inserting the contents of the stylesheet into it.
 
-Running
+    ./mergeall
 
-    ./build.py
+runs preconfigured merged.
 
-opens each `.css` file, extracts the template name and reads the corresponding file, replaces the comment in the template with the contents of the `.css` file, then writes the result to file named by replaceing `.css` with `.html`.
-
-This lets us try out a large number of styles against a small number of templates, without having to duplicate changes across files.

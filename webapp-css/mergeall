@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./merge.py simple.template simple.css > simple.html
