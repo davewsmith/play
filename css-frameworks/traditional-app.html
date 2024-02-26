@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!--
+Generic app layout
+-->
+
+<html>
+<head>
+<title>App Layout</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "logo header header header header header"
+        "nav content content content content content";
+    min-height: 100vh;
+}
+
+.wrapper > .logo,
+.wrapper > header,
+.wrapper > nav,
+.wrapper > .content {
+    padding: 10px;
+}
+
+.logo {
+    grid-area: logo;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+}
+
+header {
+    grid-area: header;
+    background-color: gray;
+}
+
+nav {
+    grid-area: nav;
+    background-color: gray;
+}
+
+.content {
+    grid-area: content;
+    background-color: white;
+}
+
+</style
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="logo">Logo Here</div>
+
+<header>Header here</header>
+
+<nav>
+Nav here
+</nav>
+
+<div class="content">
+Content here
+</div>
+
+</div>
+
+</body>
+</html>
