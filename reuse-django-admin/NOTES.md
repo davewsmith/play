@@ -25,3 +25,27 @@ then
     ./manage.py runserver 0.0.0.0:8000
 
 and browse to http://localhost:8000/admin to prove that we're set up.
+
+## Round 1
+
+Here's the general approach:
+
+  * Instead the `poc` app in front of `admin`
+  * Copy `admin/index.html` from Django to `poc/templates/admin`
+    so that it gets loaded instead of Admin's copy
+  * Add `{% include 'poc/command_list.html' %}` to give us a place to
+    add links to our commands
+  * Style `command_list.html` to match the styling in `admin/app_list.html`
+  * PROFIT!!!
+
+For individual `poc` pages can `{% extend 'admin/base_site' %}` to get the
+look-and-feel of admin pages.
+
+There's some minor friction around passing some special vars into such pages
+so that the full header appears and acts like the Admin index header.
+
+**TBD:**
+
+  * Breadcrumbs
+  * Special icons for our custom commands as they appear in the Admin index
+
