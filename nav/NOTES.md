@@ -12,3 +12,5 @@
 Start with compass heading.
 Stop short on realizing the backup laptop I'm on doesn't
 have tailscale. Oops.
+
+Later: Sorted out the tailscale issues. Compass works on my Android phone.

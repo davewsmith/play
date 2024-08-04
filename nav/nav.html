@@ -24,6 +24,7 @@ body {
 </div>
 <div id="heading"></div>
 <script>
+var heading = 0;
 
 function setHeading(s) {
     let headingEl = document.querySelector("#heading");
@@ -31,9 +32,13 @@ function setHeading(s) {
 }
 
 function orientationHandler(e) {
-    let compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+    let heading = e.webkitCompassHeading || Math.abs(e.alpha - 360);
     let headingEl = document.querySelector("#heading");
-    setHeading(compass);
+    let new_heading = Math.round(heading);
+    if (new_heading != heading) {
+        setHeading(new_heading);
+        heading = new_heading;
+    }
 }
 
 function startCompass() {
