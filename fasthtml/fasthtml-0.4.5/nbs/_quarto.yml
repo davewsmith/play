@@ -1,0 +1,49 @@
+project:
+  type: website
+  preview:
+    navigate: false
+    port: 3000
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    css: styles.css
+    toc: true
+
+website:
+  twitter-card: true
+  open-graph: true
+  repo-actions: [issue]
+  navbar:
+    title: false
+    logo: "logo.svg"
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: https://fastht.ml
+      - text: "Learn"
+        href: https://about.fastht.ml
+    right:
+      - icon: github
+        href: "https://github.com/answerdotai/fasthtml"
+      - icon: twitter
+        href: https://x.com/answerdotai
+        aria-label: Fast.ai Twitter
+  sidebar:
+    style: floating
+    contents:
+      - text: "Get Started"
+        href: index.ipynb
+      - section: Tutorials
+        contents: tutorials/*
+      - section: Explanations
+        contents: explains/*
+      - section: Reference
+        contents: ref/*
+      - section: Source
+        contents: api/*
+
+metadata-files: [nbdev.yml]

@@ -1,0 +1,6 @@
+[console_scripts]
+fh_railway_deploy = fasthtml.cli:railway_deploy
+fh_railway_link = fasthtml.cli:railway_link
+
+[nbdev]
+fasthtml = fasthtml._modidx:d
