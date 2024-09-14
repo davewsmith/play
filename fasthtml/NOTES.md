@@ -1,5 +1,7 @@
 # Notes
 
+## What have we got? (8/21/2024)
+
     pip install -r requirements.txt
     ...
     Successfully installed
@@ -52,4 +54,37 @@ css-scope-inlines doesn't have a version
 
 Downloaded pico.css (the non-minimized version). It says v2.0.6
 
+## What have we got, round two? (9/12/2024)
 
+    anyio==4.4.0
+    beautifulsoup4==4.12.3
+    certifi==2024.8.30  # newer
+    click==8.1.7
+    exceptiongroup==1.2.2
+    fastcore==1.7.5  # newer
+    fastlite==0.0.11  # newer
+    h11==0.14.0
+    httpcore==1.0.5
+    httptools==0.6.1
+    httpx==0.27.2  # newer
+    idna==3.8
+    itsdangerous==2.2.0
+    oauthlib==3.2.2
+    packaging==24.1
+    python-dateutil==2.9.0.post0
+    python-dotenv==1.0.1
+    python-fasthtml==0.5.2  # newer
+    python-multipart==0.0.9
+    PyYAML==6.0.2
+    six==1.16.0
+    sniffio==1.3.1
+    soupsieve==2.6
+    sqlite-minutils==3.37.0.post3
+    starlette==0.38.5  # newer
+    typing_extensions==4.12.2
+    uvicorn==0.30.6
+    uvloop==0.20.0
+    watchfiles==0.24.0  # newer
+    websockets==13.0.1  # newer
+
+.js and .css appear to be unchanged
