@@ -24,6 +24,12 @@ Creating the above eagerly is pretty straightforward.
 
 Depending on access patterns, this might need additional indexes in the linking table.
 
+Running the eager creation twice results in
+
+    sqlite3.OperationalError: table [dogs] already exists
+
+Checking `db.schema == ""` is a possibly overkill way of avoiding that.
+
 ## References
 
   * https://sqlite-utils.datasette.io/en/stable/
