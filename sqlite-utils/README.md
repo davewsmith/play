@@ -1,6 +1,6 @@
 # sqlite-utils play
 
-Kicking the tires
+Kicking the tires, messily. No apologies.
 
 ## Setup
 
