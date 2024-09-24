@@ -30,6 +30,12 @@ Running the eager creation twice results in
 
 Checking `db.schema == ""` is a possibly overkill way of avoiding that.
 
+The initial insert into `dogs_humans` produced a `last_pk` of `1`. Bug?
+
+A duplicate insert yielded
+
+    sqlite3.IntegrityError: UNIQUE constraint failed: dogs_humans.dogs_id, dogs_humans.humans_id
+
 ## References
 
   * https://sqlite-utils.datasette.io/en/stable/
