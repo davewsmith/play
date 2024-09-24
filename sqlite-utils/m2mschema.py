@@ -6,6 +6,7 @@ humans = db.table("humans", pk="id")
 
 print("---- after defining tables ----")
 print(db.schema)
+assert db.schema == ""
 
 dogs.insert({"id": 1, "name": "Cleo"}).m2m(
     humans, [
@@ -46,5 +47,8 @@ db["dogs_humans"].create({
 print("---- after manual create ---")
 print(db.schema)
 
-
-
+dog_id = db["dogs"].insert({"name": "Gosby"}).last_pk
+human_id = db["humans"].insert({"name": "Dave"}).last_pk
+composite_id = db["dogs_humans"].insert({"dogs_id": dog_id, "humans_id": human_id}).last_pk
+print(composite_id)
+composite_id = db["dogs_humans"].insert({"dogs_id": dog_id, "humans_id": human_id}).last_pk

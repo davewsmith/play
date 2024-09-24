@@ -28,9 +28,9 @@ Running the eager creation twice results in
 
     sqlite3.OperationalError: table [dogs] already exists
 
-Checking `db.schema == ""` is a possibly overkill way of avoiding that.
+Checking `db.schema == ""` is a possibly overkill way of avoiding that.  `db.table["dogs"].exists()` may be cleaner.
 
-The initial insert into `dogs_humans` produced a `last_pk` of `1`. Bug?
+The initial insert into `dogs_humans` produced a `last_pk` of `1`. Bug? No sign of an issue.
 
 A duplicate insert yielded
 
