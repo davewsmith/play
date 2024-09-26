@@ -36,6 +36,19 @@ A duplicate insert yielded
 
     sqlite3.IntegrityError: UNIQUE constraint failed: dogs_humans.dogs_id, dogs_humans.humans_id
 
+## Round 2
+
+A bit of research later, not a bug, but perhaps a documentation issue.
+The docs seem not make it clear earlier that
+
+    >>> id(db["foo"]) == id(db["foo"])
+    False
+
+That is, each time you reach into db with the same key, you get back a _new_ value,
+which retains nothing from older values other than what can be derived by introspection
+on the underlying database.
+
+
 ## References
 
   * https://sqlite-utils.datasette.io/en/stable/
