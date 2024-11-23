@@ -1,2 +1,4 @@
 flask
 celery
+python-dotenv
+redis

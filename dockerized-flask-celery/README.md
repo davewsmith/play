@@ -9,3 +9,12 @@ For local (non-docker) development
     python3 -m venv venv
     venv/bin/pip install -r requirements.txt
 
+## Running
+
+In separate terminals
+
+    sudo docker run -p 6379:6379 redis:7-alpine
+
+    ./runworkers
+
+    FLASK_APP=server.py venv/bin/flask testcelery
