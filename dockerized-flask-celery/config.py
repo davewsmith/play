@@ -7,11 +7,8 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config:
-    # broker_url = 'redis://localhost:6379'
-    # result_backend = 'redis://localhost:6379'
-    # CELERY_BROKER_URL = 'redis://localhost:6379/0'
-    # CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+    # Celery configuration
     broker_url = 'redis://localhost:6379/0'
+    broker_connection_retry_on_startup = True
     result_backend = 'redis://localhost:6379/0'
-
     celery_hijack_root_logger = False

@@ -9,7 +9,7 @@ For local (non-docker) development
     python3 -m venv venv
     venv/bin/pip install -r requirements.txt
 
-## Running
+## Running a local test
 
 In separate terminals
 
@@ -17,4 +17,9 @@ In separate terminals
 
     ./runworkers
 
+then in another terminal
+
     FLASK_APP=server.py venv/bin/flask testcelery
+
+    FLASK_APP=server.py venv/bin/flask testceleryfailure
+
