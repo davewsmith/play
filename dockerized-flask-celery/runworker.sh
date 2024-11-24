@@ -1,3 +1,3 @@
 #!/bin/bash
 
-venv/bin/celery -A server.celery worker
+celery -A server.celery worker
