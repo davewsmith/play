@@ -1,6 +1,7 @@
 from celery.result import AsyncResult
 
 from app import create_app
+from app import celery  # noqa
 from app import tasks
 
 
