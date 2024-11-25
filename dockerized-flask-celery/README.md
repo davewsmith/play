@@ -9,15 +9,23 @@ For local (non-docker) development
     python3 -m venv venv
     venv/bin/pip install -r requirements.txt
 
-## Running a local test
+## Running 
 
-In separate terminals
+Build the worker image
 
-    sudo docker run -p 6379:6379 redis:7-alpine
+    sudo docker buildx build --tag worker .
 
-    ./runworkers
+Create the docker network if it isn't already there
 
-then in another terminal
+    sudo docker network create demo
+
+Then separate terminals
+
+    sudo docker run --name redis --network demo -p 6379:6379 redis:7-alpine
+
+    sudo docker run --name worker --network demo worker
+
+Then in another terminal
 
     FLASK_APP=server.py venv/bin/flask testcelery
 

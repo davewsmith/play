@@ -19,6 +19,8 @@ RUN pip3 install -r /requirements.txt
 WORKDIR /app
 COPY . .
 
+RUN cp .env.docker .env
+
 # RUN chmod +x entrypoint.sh
 # ENTRYPOINT ["./entrypoint.sh"]
 

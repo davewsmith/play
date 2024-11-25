@@ -32,3 +32,21 @@ except I want to see the logs from the worker in real time.
 I guess `docker logs --follow` will do that, but it's an extra
 step.) I'll manual up. It'll build character.
 
+## Round 3
+
+Based on reading the docs, what _should_ work is something like
+
+    docker buildx build --tag worker .
+
+After arranging for the `.env` to reflect `redis` as the redis host.
+Then
+
+    docker network create demo-net
+    docker run --name redis --network demo-net -p 6379:6379 redis:7-alpine
+    docker run --network demo-net worker
+
+This should let me inject work in from outside of `demo-net`.
+Or, work out the switch that lets me use the same image for
+both app and worker. Choices.
+
+After a bit of futzing, that worked. Yay!
