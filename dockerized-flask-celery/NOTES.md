@@ -13,7 +13,6 @@
 
 ## TO DO
 
-  * Dockerize the worker
   * Sort out logging (options for retrieving from a container)
 
 ## Round 1
@@ -49,4 +48,7 @@ This should let me inject work in from outside of `demo-net`.
 Or, work out the switch that lets me use the same image for
 both app and worker. Choices.
 
-After a bit of futzing, that worked. Yay!
+After a bit of futzing, that worked. Yay! I can delay a task to celery
+from outside of the docker world, then get a response from a worker
+inside the docker world. The desired path is paved.
+
