@@ -1,0 +1,27 @@
+networks:
+  demo:
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - 6379:6379
+    networks:
+      - demo
+
+  web:
+    build: .
+    ports:
+      - 5000:5000
+    networks:
+      - demo
+    environment:
+      FLASK_APP: server.py
+    command: flask run --host=0.0.0.0
+
+  worker:
+    build: .
+    networks:
+      - demo
+    command: celery -A server.celery worker
+

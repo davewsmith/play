@@ -11,23 +11,8 @@ For local (non-docker) development
 
 ## Running 
 
-Build the worker image
-
-    sudo docker buildx build --tag worker .
-
-Create the docker network if it isn't already there
-
-    sudo docker network create demo
-
-Then separate terminals
-
-    sudo docker run --name redis --network demo -p 6379:6379 redis:7-alpine
-
-    sudo docker run --name worker --network demo worker
-
-Then in another terminal
-
-    FLASK_APP=server.py venv/bin/flask testcelery
-
-    FLASK_APP=server.py venv/bin/flask testceleryfailure
+    docker compose build
+    docker compose up
+    ...
+    docker compose down
 

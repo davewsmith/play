@@ -21,9 +21,3 @@ COPY . .
 
 RUN cp .env.docker .env
 
-# RUN chmod +x entrypoint.sh
-# ENTRYPOINT ["./entrypoint.sh"]
-
-RUN chmod +x runworker.sh
-ENTRYPOINT ["./runworker.sh"]
-

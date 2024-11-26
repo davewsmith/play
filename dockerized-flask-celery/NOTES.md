@@ -52,3 +52,10 @@ After a bit of futzing, that worked. Yay! I can delay a task to celery
 from outside of the docker world, then get a response from a worker
 inside the docker world. The desired path is paved.
 
+## Round 4
+
+So, `docker compose`, which has changed sligtly since `docker-compose` days.
+
+Got `docker compuse up` minimally working (the flask app presents on localhost:5000).
+There's a complaint from the worker that it shouldn't be run as root. Fixing that later.
+
