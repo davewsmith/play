@@ -4,6 +4,15 @@
 
 {% block content %}
 
-<h1>Watch this space</h1>
+<ul>
+  <li><a href="{{ url_for('main.submit') }}">Submit for success</a></li>
+  <li><a href="{{ url_for('main.submitfailure') }}">Submit for failure</a></li>
+</ul>
+
+<h4>app.config</h4>
+<p>{{ config }}</p>
+
+<h4>Redis Keys</h4>
+<p>{{ msg }}</p>
 
 {% endblock %}

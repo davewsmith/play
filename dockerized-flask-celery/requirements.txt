@@ -2,3 +2,4 @@ flask
 celery
 python-dotenv
 redis
+requests

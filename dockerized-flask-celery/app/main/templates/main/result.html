@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
+<h2>
+Task 
+<a href="{{ url_for('main.status', task_id=result.task_id) }}">{{ result.task_id }}</a>:
+{{ result.ready() }}
+{{ result.status }}
+{{ result.info }}
+</h2>
+
+<h4>Redis</h4>
+<p>{{ keys }}</p>
+
+{% endblock %}
