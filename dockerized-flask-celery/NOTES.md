@@ -14,6 +14,8 @@
 ## TO DO
 
   * Sort out logging (options for retrieving from a container)
+  * Why am I not getting app-level logging from celery workers?
+  * Configure to use a non-root user
 
 ## Round 1
 
@@ -59,3 +61,8 @@ So, `docker compose`, which has changed sligtly since `docker-compose` days.
 Got `docker compuse up` minimally working (the flask app presents on localhost:5000).
 There's a complaint from the worker that it shouldn't be run as root. Fixing that later.
 
+Fought with celery for a few hours sorting out why it thought there was no backend
+configured when I went to retreive the status for a task. A bit of searching turned
+up others having the problem, then eventualy the hint that when reconsituting a
+`celery.result.AsyncResult` from a `task_id`, one has to also set `app`. Not sure
+why I didn't get bit by this earlier.
