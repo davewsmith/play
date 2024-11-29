@@ -13,9 +13,7 @@
 
 ## TO DO
 
-  * Sort out logging (options for retrieving from a container)
   * Why am I not getting app-level logging from celery workers?
-  * Configure to use a non-root user
 
 ## Round 1
 
@@ -66,3 +64,12 @@ configured when I went to retreive the status for a task. A bit of searching tur
 up others having the problem, then eventualy the hint that when reconsituting a
 `celery.result.AsyncResult` from a `task_id`, one has to also set `app`. Not sure
 why I didn't get bit by this earlier.
+
+## Round 5
+
+Arranged to run as a non-privileged user, which gets rid of a warning from celery.
+
+Cut time image size in half by not installing `build-essential` (which I was cargo-culting),
+and by passing `--no-cache-dir` to pip.
+
+Still need to sort out logging.
