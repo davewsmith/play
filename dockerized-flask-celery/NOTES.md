@@ -73,3 +73,6 @@ Cut time image size in half by not installing `build-essential` (which I was car
 and by passing `--no-cache-dir` to pip.
 
 Still need to sort out logging.
+
+https://stackoverflow.com/questions/77433205/how-to-install-mysqlclient-in-a-python3-slim-docker-image-without-bloating-the
+has a clue for how to install mysqlclient without taking the space hit for build-essentials.
