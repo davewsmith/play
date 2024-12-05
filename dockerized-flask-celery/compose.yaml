@@ -23,5 +23,5 @@ services:
     build: .
     networks:
       - demo
-    command: celery -A server.celery worker --loglevel=DEBUG
+    command: celery -A server.celery worker --loglevel=INFO
 
