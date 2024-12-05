@@ -76,3 +76,26 @@ Still need to sort out logging.
 
 https://stackoverflow.com/questions/77433205/how-to-install-mysqlclient-in-a-python3-slim-docker-image-without-bloating-the
 has a clue for how to install mysqlclient without taking the space hit for build-essentials.
+
+## Round 6
+
+Wiring up a database, mostly to work out health checks and migration timing.
+
+Ref: [docker hub page for mysql](https://hub.docker.com/_/mysql)
+
+After `docker compose build ; docker compose up` (and a lot of noise from MySQL)
+
+    $ docker compose run --entrypoint=bash db
+    # mysql -u root -h db -padmin
+    ...
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | demo               |
+    | information_schema |
+    | mysql              |
+    | performance_schema |
+    | sys                |
+    +--------------------+
+    5 rows in set (0.00 sec)
