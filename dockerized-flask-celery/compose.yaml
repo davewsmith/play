@@ -44,7 +44,13 @@ services:
       - demo
     environment:
       FLASK_APP: server.py
-    command: flask run --host=0.0.0.0
+    command:
+     - bash
+     - -c
+     - |
+       # flask db upgrade
+       # TODO gunicorn
+       flask run --host=0.0.0.0
     depends_on:
       db:
         condition: service_healthy
@@ -55,6 +61,6 @@ services:
       - demo
     command: celery -A server.celery worker --loglevel=INFO
     depends_on:
-      db:
-        condition: service_healthy
+      web:
+        condition: service_started
 

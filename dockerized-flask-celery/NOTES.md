@@ -99,3 +99,6 @@ After `docker compose build ; docker compose up` (and a lot of noise from MySQL)
     | sys                |
     +--------------------+
     5 rows in set (0.00 sec)
+
+Ready to wire in models and migrations, which were out of scope originally, but whatever.
+
