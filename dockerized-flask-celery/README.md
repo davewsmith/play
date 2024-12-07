@@ -15,4 +15,5 @@ For local (non-docker) development
     docker compose up
     ...
     docker compose down
-
+    ...
+    docker compose prune

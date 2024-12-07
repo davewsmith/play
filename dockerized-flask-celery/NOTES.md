@@ -102,3 +102,27 @@ After `docker compose build ; docker compose up` (and a lot of noise from MySQL)
 
 Ready to wire in models and migrations, which were out of scope originally, but whatever.
 
+## Round 7
+
+TODO
+
+  * Put the SQLite database into a volume (or punt and head right for MySQL?)
+  * Add models, and document how to make migrations (outside of docker)
+
+Decided to punt on migrations in favor of getting `db.create_all()` working with MySQL,
+since after that migrations are pretty much just a matter of extra toil.
+
+This round was hampered by my forgetting that I'd hard-coded SQLite in config.py.
+
+Anyway, a schema is getting created in MySQL, so Yay. Part of the plumbing for
+migrations is there -- deferring the rest until a later round.
+
+Next:
+
+  * Plumb everything together to show some piece of work going end-to-end
+  * File off rough edges on local (non-docker) development
+  * Add migrations
+  * gunicorn
+  * Build in stages so that we don't have build-essentials in the final image
+  * Decide of Multiprocessing in the worker is proving anything we haven't already proven
+

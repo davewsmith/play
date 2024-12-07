@@ -1,5 +1,8 @@
-flask
 celery
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
 python-dotenv
 redis
 requests
+mysqlclient

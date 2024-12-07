@@ -12,7 +12,9 @@ LAYER
 RUN <<LAYER
 apt-get update
 # dependencies for building Python packages
-# apt-get install -y build-essential
+# TODO this part needs attention
+apt-get install -y python3-dev default-libmysqlclient-dev build-essential pkg-config
+
 # cleaning up unused files
 apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 rm -rf /var/lib/apt/lists/*

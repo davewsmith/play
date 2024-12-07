@@ -28,7 +28,7 @@ services:
       test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
       interval: 3s
       retries: 10
-      start_period: 15s
+      start_period: 5s
     networks:
       - demo
     secrets:
@@ -48,7 +48,8 @@ services:
      - bash
      - -c
      - |
-       # flask db upgrade
+       # TODO flask db upgrade
+       flask create-all
        # TODO gunicorn
        flask run --host=0.0.0.0
     depends_on:
