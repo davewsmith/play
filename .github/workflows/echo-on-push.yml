@@ -1,6 +1,6 @@
 on:
   push:
-    # tags:
+    tags:
     #   - '*'
 
 jobs:
@@ -9,6 +9,5 @@ jobs:
     steps:
       - name: Debug Echo
         run: |
-            echo "I've been triggered!"
-            echo "github.ref_name: ${{ github.ref_name }}"
+            echo "I've been triggered! github.ref_name: ${{ github.ref_name }}"
     
