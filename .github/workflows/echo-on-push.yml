@@ -1,5 +1,7 @@
 on:
   push:
+    tags:
+      - '**'
 
 jobs:
   echo-on-push:
@@ -7,5 +9,5 @@ jobs:
     steps:
       - name: Debug Echo
         run: |
-            echo "I've been triggered"
+            echo "I've been triggered: ${ github.ref_name }'
     
