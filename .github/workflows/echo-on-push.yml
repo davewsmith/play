@@ -1,0 +1,11 @@
+on:
+  push:
+
+jobs:
+  echo-on-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Echo
+        run: |
+            echo "I've been triggered"
+    
