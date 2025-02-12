@@ -1,7 +1,7 @@
 on:
   push:
     tags-ignore:
-      - *
+      - '*'
 
 jobs:
   echo-on-push:
