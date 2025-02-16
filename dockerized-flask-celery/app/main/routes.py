@@ -7,6 +7,7 @@ import redis
 from app.main import bp
 from app import celery as celery_app
 from . import tasks
+from .models import Job
 
 
 logger = logging.getLogger(__name__)
