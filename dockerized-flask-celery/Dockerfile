@@ -30,7 +30,3 @@ USER app
 WORKDIR /app
 
 COPY --chown=1000:1000 . .
-
-RUN <<LAYER
-cp .env.docker .env
-LAYER

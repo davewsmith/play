@@ -1,0 +1,13 @@
+services:
+
+  web:
+    environment:
+      SQLALCHEMY_DATABASE_URI: mysql://root:admin@db/demo
+      BROKER_URL: redis://redis:6379/0
+      RESULT_BACKEND: redis://redis:6379/0
+
+  worker:
+    environment:
+      SQLALCHEMY_DATABASE_URI: mysql://root:admin@db/demo
+      BROKER_URL: redis://redis:6379/0
+      RESULT_BACKEND: redis://redis:6379/0

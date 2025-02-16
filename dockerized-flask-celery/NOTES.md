@@ -123,8 +123,6 @@ Next:
   * File off rough edges on local (non-docker) development
   * Add migrations
   * gunicorn
-  * Build in stages so that we don't have build-essentials in the final image
-  * Decide of Multiprocessing in the worker is proving anything we haven't already proven
 
 ## Round 8, after a distracting interlude
 
@@ -132,4 +130,6 @@ Pass a row ID to the tasks so that it can fetch source data and store output dat
 
   * First, prefactor to move tasks into the main blueprint
   * Next, speak current SQLAlchemy, which has evolved a bit
-  * The tasks now takes a row id and side-effects the row
+  * main.tasks.submit now takes a row id and side-effects the row
+
+A bit of compose refactoring. Use compose.override.yaml instead of .env
