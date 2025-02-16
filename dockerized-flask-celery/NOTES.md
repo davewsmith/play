@@ -2,15 +2,15 @@
 
 ## Goals
 
-  * Work up a clean way of dockerizing a Celery worker for a Flask app
-  x Test what we can do with Multiprocessing or MultiThreading in the worker
-  * (Optional) dockerize the Flask app
+  x Work up a clean way of dockerizing a Celery worker for a Flask app
+  x (Optional) dockerize the Flask app
+  x Hooking up a database
   * Work out the dance moves for migrations
 
 ## Non-Goals
 
+  * (Demoted from Goal) Test what we can do with Multiprocessing or MultiThreading in the worker
   * Making it look good (styling)
-  x Hooking up a database
 
 ## TO DO
 
