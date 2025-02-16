@@ -126,3 +126,8 @@ Next:
   * Build in stages so that we don't have build-essentials in the final image
   * Decide of Multiprocessing in the worker is proving anything we haven't already proven
 
+## Round 8, after a distracting interlude
+
+Pass a row ID to the tasks so that it can fetch source data and store target data.
+
+  * First, prefactor to move tasks into the main blueprint

@@ -1,8 +1,9 @@
 from celery.result import AsyncResult
 from flask.cli import with_appcontext
 
-from app import create_app, db, tasks
+from app import create_app, db
 from app import celery  # noqa
+from app.main import tasks
 
 
 app = create_app()
