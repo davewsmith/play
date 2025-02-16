@@ -128,6 +128,7 @@ Next:
 
 ## Round 8, after a distracting interlude
 
-Pass a row ID to the tasks so that it can fetch source data and store target data.
+Pass a row ID to the tasks so that it can fetch source data and store output data.
 
   * First, prefactor to move tasks into the main blueprint
+  * Next, speak current SQLAlchemy, which has evolved a bit
