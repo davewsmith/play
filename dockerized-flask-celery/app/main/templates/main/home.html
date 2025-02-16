@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{% include 'main/_jobs.html' %}
+
 <ul>
   <li><a href="{{ url_for('main.submit') }}">Submit for success</a></li>
   <li><a href="{{ url_for('main.submitfailure') }}">Submit for failure</a></li>

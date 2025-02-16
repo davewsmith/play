@@ -1,0 +1,21 @@
+<h2>Jobs</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>source</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+{% for job in jobs %}
+<tr>
+<td>{{ job.id }}</td>
+<td>{{ job.source }}</td>
+<td>{{ job.output }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+

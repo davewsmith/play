@@ -1,11 +1,14 @@
 import logging
+import uuid
 
 from celery.result import AsyncResult
 from flask import current_app, render_template
 import redis
+import sqlalchemy as sa
 
 from app.main import bp
 from app import celery as celery_app
+from app import db
 from . import tasks
 from .models import Job
 
@@ -17,7 +20,12 @@ r = redis.Redis(host='redis', port=6379, db=0)
 @bp.route('/')
 def home():
     logger.info("home")
+
+    query = sa.select(Job).order_by(Job.id.desc()).limit(10)
+    jobs = db.session.scalars(query).all()
+
     bindings = dict(
+        jobs=jobs,
         msg=redis_keys(),
         config=repr(current_app.config),
     )
@@ -32,8 +40,17 @@ def ping():
 
 @bp.route('/submit')
 def submit():
-    result = tasks.testcelery.delay(47, 29)
+    job = Job(source=str(uuid.uuid4()))
+    db.session.add(job)
+    db.session.commit()
+
+    result = tasks.testcelery.delay(job.id)
+
+    query = sa.select(Job).order_by(Job.id.desc())
+    jobs = db.session.scalars(query).all()
+
     bindings = dict(
+        jobs=jobs,
         result=result,
         keys=redis_keys(),
     )

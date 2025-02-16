@@ -132,3 +132,4 @@ Pass a row ID to the tasks so that it can fetch source data and store output dat
 
   * First, prefactor to move tasks into the main blueprint
   * Next, speak current SQLAlchemy, which has evolved a bit
+  * The tasks now takes a row id and side-effects the row

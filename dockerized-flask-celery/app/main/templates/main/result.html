@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{% include 'main/_jobs.html' %}
+
 <h2>
 Task 
 <a href="{{ url_for('main.status', task_id=result.task_id) }}">{{ result.task_id }}</a>:
