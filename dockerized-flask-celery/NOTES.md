@@ -3,13 +3,14 @@
 ## Goals
 
   * Work up a clean way of dockerizing a Celery worker for a Flask app
-  * Test what we can do with Multiprocessing or MultiThreading in the worker
+  x Test what we can do with Multiprocessing or MultiThreading in the worker
   * (Optional) dockerize the Flask app
+  * Work out the dance moves for migrations
 
 ## Non-Goals
 
   * Making it look good (styling)
-  * Hooking up a database
+  x Hooking up a database
 
 ## TO DO
 
@@ -56,7 +57,7 @@ inside the docker world. The desired path is paved.
 
 So, `docker compose`, which has changed sligtly since `docker-compose` days.
 
-Got `docker compuse up` minimally working (the flask app presents on localhost:5000).
+Got `docker compose up` minimally working (the flask app presents on localhost:5000).
 There's a complaint from the worker that it shouldn't be run as root. Fixing that later.
 
 Fought with celery for a few hours sorting out why it thought there was no backend
@@ -126,10 +127,19 @@ Next:
 
 ## Round 8, after a distracting interlude
 
-Pass a row ID to the tasks so that it can fetch source data and store output data.
+Pass a row ID to `main.tasks.submit` so that it can fetch source data and store output data.
 
   * First, prefactor to move tasks into the main blueprint
   * Next, speak current SQLAlchemy, which has evolved a bit
-  * main.tasks.submit now takes a row id and side-effects the row
+  * `main.tasks.submit` now takes a row id and side-effects the row
+  * Added a tabular display of the last 10 jobs
 
 A bit of compose refactoring. Use compose.override.yaml instead of .env
+
+Scratched the itch of using Multiprocessing inside of a container elsewhere,
+so dropping that as a goal.
+
+Adding the goal of working through the dance moves for making migrations,
+which feel like they should be made outside of a container unless source
+gets mounted.
+
