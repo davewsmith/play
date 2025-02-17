@@ -37,7 +37,9 @@ services:
       - db-storage:/var/lib/mysql
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 5000:5000
     networks:
@@ -57,7 +59,9 @@ services:
         condition: service_healthy
 
   worker:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     networks:
       - demo
     command: celery -A server.celery worker --loglevel=INFO
