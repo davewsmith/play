@@ -39,7 +39,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.minimal
     ports:
       - 5000:5000
     networks:
@@ -61,7 +61,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.minimal
     networks:
       - demo
     command: celery -A server.celery worker --loglevel=INFO
