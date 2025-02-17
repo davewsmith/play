@@ -4,7 +4,12 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN apt-get update && \
-apt-get install -y pkg-config build-essential python3-pip python3-dev default-libmysqlclient-dev && \
+apt-get install --no-install-recommends -y \
+pkg-config \
+build-essential \
+libmysqlclient-dev default-libmysqlclient-dev \
+python3-dev \
+python3-pip && \
 apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
 rm -rf /var/lib/apt/lists/*
 
