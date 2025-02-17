@@ -143,3 +143,4 @@ Adding the goal of working through the dance moves for making migrations,
 which feel like they should be made outside of a container unless source
 gets mounted.
 
+For grins, wired things up to use a separate Dockerfile (base on ubuntu 22.04) for web.
