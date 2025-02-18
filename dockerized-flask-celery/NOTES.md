@@ -144,3 +144,10 @@ which feel like they should be made outside of a container unless source
 gets mounted.
 
 For grins, wired things up to use a separate Dockerfile (base on ubuntu 22.04) for web.
+
+## Bonus round
+
+Tried getting a few LLMs to write a Dockerfile. Hilarity ensued. Gemini took several
+runs at it, but didn't manage to produced one that would build an image. My prompt
+might need some work. Tried with a local LLM, which hysterically gave me a Dockerfile
+that didn't build mysqlclient, despite a what seemed like a well-formed prompt.
