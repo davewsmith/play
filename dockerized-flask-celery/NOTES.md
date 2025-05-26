@@ -157,4 +157,20 @@ that didn't build mysqlclient, despite a what seemed like a well-formed prompt.
 Running migrations as a separate step that web and worker can depend on seems
 like a good move, so let's do that with our placeholder 'migration'.
 
+Oh, right. To actually create a migration, one needs a shell in an environment
+that has all of the dependencies (e.g., the mysql libraries). Getting a
+shell in a container isn't a challenge, but keeping the migration once
+made (or the `flask db init` residue) requires either exfiltrating it
+from the container (tedious and possibly error-prone), or mounting the
+source. Punting back to SQLite3 solves the dependency problem, but
+not the source-change one. Maybe an optional dev container...
+
+## Side quest: Update to a newer Debian
+
+Or, "I was using _what?"_
+
+jesse-slim:3.11 to bookwork-slim:3.13 in steps.
+
+Celery logging is busted. I'd forgotten that was already on the To Do list.
+
 

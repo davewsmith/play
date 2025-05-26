@@ -1,4 +1,4 @@
-FROM python:3.11-slim-buster
+FROM python:3.13-slim-bookworm
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -14,8 +14,6 @@ apt-get update
 # dependencies for building Python packages
 # TODO this part needs attention
 apt-get install -y python3-dev default-libmysqlclient-dev build-essential pkg-config
-
-# cleaning up unused files
 apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 rm -rf /var/lib/apt/lists/*
 LAYER
