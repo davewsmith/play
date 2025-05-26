@@ -151,3 +151,10 @@ Tried getting a few LLMs to write a Dockerfile. Hilarity ensued. Gemini took sev
 runs at it, but didn't manage to produced one that would build an image. My prompt
 might need some work. Tried with a local LLM, which hysterically gave me a Dockerfile
 that didn't build mysqlclient, despite a what seemed like a well-formed prompt.
+
+## Round 9, Prepare for migrations
+
+Running migrations as a separate step that web and worker can depend on seems
+like a good move, so let's do that with our placeholder 'migration'.
+
+

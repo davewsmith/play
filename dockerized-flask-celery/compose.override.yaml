@@ -1,5 +1,9 @@
 services:
 
+  migrate:
+    environment:
+      SQLALCHEMY_DATABASE_URI: mysql://root:admin@db/demo
+
   web:
     environment:
       SQLALCHEMY_DATABASE_URI: mysql://root:admin@db/demo

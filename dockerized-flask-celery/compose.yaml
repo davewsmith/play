@@ -36,6 +36,24 @@ services:
     volumes:
       - db-storage:/var/lib/mysql
 
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - demo
+    environment:
+      FLASK_APP: server.py
+    command:
+      - bash
+      - -c
+      - |
+        flask create-all
+        # TODO flask db upgrade
+    depends_on:
+      db:
+        condition: service_healthy
+
   web:
     build:
       context: .
@@ -50,13 +68,11 @@ services:
      - bash
      - -c
      - |
-       # TODO flask db upgrade
-       flask create-all
        # TODO gunicorn
        flask run --host=0.0.0.0
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
   worker:
     build:
