@@ -39,7 +39,11 @@ services:
   migrate:
     build:
       context: .
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
+      dockerfile: Dockerfile.minimal
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - demo
     environment:
@@ -50,14 +54,36 @@ services:
       - |
         flask create-all
         # TODO flask db upgrade
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.minimal
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    networks:
+      - demo
+    volumes:
+      - .:/source
+    environment:
+      FLASK_APP: server.py
+    command:
+      - bash
+      - -c
+      - |
+        sleep 60000000
 
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
+      dockerfile: Dockerfile.minimal
+    depends_on:
+      redis:
+        condition: service_started
+      migrate:
+        condition: service_completed_successfully
     ports:
       - 5000:5000
     networks:
@@ -70,22 +96,17 @@ services:
      - |
        # TODO gunicorn
        flask run --host=0.0.0.0
-    depends_on:
-      redis:
-        condition: service_started
-      migrate:
-        condition: service_completed_successfully
 
   worker:
     build:
       context: .
       dockerfile: Dockerfile.minimal
-    networks:
-      - demo
-    command: celery -A server.celery worker --loglevel=INFO
     depends_on:
       redis:
         condition: service_started
       web:
         condition: service_started
+    networks:
+      - demo
+    command: celery -A server.celery worker --loglevel=INFO
 
