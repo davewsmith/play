@@ -5,7 +5,8 @@
   x Work up a clean way of dockerizing a Celery worker for a Flask app
   x (Optional) dockerize the Flask app
   x Hooking up a database
-  * Work out the dance moves for migrations
+  x Work out the dance moves for migrations
+  * Work out the dance moves for iterating on CSS
 
 ## Non-Goals
 
@@ -165,12 +166,35 @@ from the container (tedious and possibly error-prone), or mounting the
 source. Punting back to SQLite3 solves the dependency problem, but
 not the source-change one. Maybe an optional dev container...
 
-## Side quest: Update to a newer Debian
+## Side quest: Upgrade to a newer Debian
 
 Or, "I was using _what?"_
 
-jesse-slim:3.11 to bookwork-slim:3.13 in steps.
+Upgraded jesse-slim:3.11 to bookwork-slim:3.13 in steps.
 
 Celery logging is busted. I'd forgotten that was already on the To Do list.
 
+## Round 9.1
+
+Added a `dev` container that mounts `.` as `/source`.
+
+    docker exec -it ...-dev-1 /bin/bash
+
+then
+
+    cd /source
+    flask db ...
+
+and side-effects are visible outside the container.
+
+To get things started,
+
+    flask db init
+    flask db migrate -m 'initial migration'
+
+And then
+
+    flask db upgrade
+
+from the new `migrate` step.
 

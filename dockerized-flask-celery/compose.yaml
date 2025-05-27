@@ -52,8 +52,7 @@ services:
       - bash
       - -c
       - |
-        flask create-all
-        # TODO flask db upgrade
+        flask db upgrade
 
   dev:
     build:
