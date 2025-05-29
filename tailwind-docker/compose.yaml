@@ -1,0 +1,10 @@
+services:
+
+  tailwindcss:
+    build:
+      context: .
+      dockerfile: Dockerfile.tailwindcss
+    volumes:
+      - .:/app
+    command:
+      - tailwindcss -i /app/tailwind.css -o /app/style.css --watch

@@ -1,0 +1,22 @@
+FROM debian:bookworm-slim
+
+RUN <<LAYER
+groupadd -g 1000 app
+useradd -m -d /app -s /bin/bash -u 1000 -g 1000 app
+chown app:app /app
+LAYER
+
+RUN <<LAYER
+apt-get update
+apt-get install -y curl
+LAYER
+
+RUN <<LAYER
+curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.1.8/tailwindcss-linux-x64
+mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
+chmod +x /usr/local/bin/tailwindcss
+LAYER
+
+USER app
+WORKDIR /app
+
