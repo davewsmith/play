@@ -6,13 +6,11 @@ services:
       dockerfile: Dockerfile.tailwindcss
     volumes:
       - .:/app
-    # stdin_open: true  # this bit of magic was painful to find
-    tty: true
     command:
       - bash
       - -c
       - |
-          tailwindcss -i tailwind.css -o style.css --watch
+          tailwindcss -i tailwind.css -o style.css --watch=always
 
   http:
     build:
