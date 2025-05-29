@@ -6,8 +6,7 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
+    --spacing: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -158,8 +157,7 @@
   }
 }
 @layer utilities {
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
   }
 }

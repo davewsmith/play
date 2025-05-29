@@ -1,0 +1,10 @@
+FROM python:3.13-slim-bookworm
+
+RUN <<LAYER
+groupadd -g 1000 app
+useradd -m -d /app -s /bin/bash -u 1000 -g 1000 app
+chown app:app /app
+LAYER
+
+USER app
+WORKDIR /app

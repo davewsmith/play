@@ -5,10 +5,25 @@ services:
       context: .
       dockerfile: Dockerfile.tailwindcss
     volumes:
-      - /home/dws/github/davewsmith/play/tailwind-docker:/app
-    stdin_open: true  # this bit of magic was painful to find
+      - .:/app
+    # stdin_open: true  # this bit of magic was painful to find
+    tty: true
     command:
       - bash
       - -c
       - |
           tailwindcss -i tailwind.css -o style.css --watch
+
+  http:
+    build:
+      context: .
+      dockerfile: Dockerfile.http
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    command:
+      - bash
+      - -c
+      - |
+          python3 -m http.server

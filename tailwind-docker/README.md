@@ -1,9 +1,11 @@
 # Tailwind in Docker
 
-Set up a `compose up` to run tailwindcss with --watch
+Quick proof-of-concept for setting up tailwindcss in a container,
+with a (trivial, here) web development environment in another
+container.
 
-The tricky bit to find was the `stdin_open: true` bit, which
-either keeps tailwincss from exiting right way, or the
-compose mechanism from thinking that it has.
+The tricky bit to find was the `tty: true` bit, which
+either keeps tailwincss from exiting right way. (I'll bet
+if I look its doing some sort of `isatty` check.)
 
 Found that via https://github.com/rails/rails/issues/44048
