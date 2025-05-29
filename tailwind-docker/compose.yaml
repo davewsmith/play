@@ -5,6 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile.tailwindcss
     volumes:
-      - .:/app
+      - /home/dws/github/davewsmith/play/tailwind-docker:/app
+    stdin_open: true  # this bit of magic was painful to find
     command:
-      - tailwindcss -i /app/tailwind.css -o /app/style.css --watch
+      - bash
+      - -c
+      - |
+          tailwindcss -i tailwind.css -o style.css --watch
