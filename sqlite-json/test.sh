@@ -2,11 +2,21 @@
 
 # Playing with an idea from https://crawshaw.io/blog/programming-with-agents
 
+rm -f test.db
+
 cat <<EOF | sqlite3 test.db
+pragma foreign_keys=on;
+
+create table user (
+    username varchar not null primary key
+);
+
+insert into user (username) values ('dave');
+
 create table if not exists test (
     json jsonb  not null,
     id int      not null as (json->>'id') stored,
-    key varchar          as (json->>'key'),
+    username varchar     as (json->>'username') stored references user (username) on delete cascade,
     value text           as (json->>'value')
 );
 EOF
@@ -17,7 +27,24 @@ insert=$(echo -n "insert into test (json) values('"; echo -n $json ; echo "');")
 echo $insert | sqlite3 test.db
 
 sqlite3 test.db <<QUERIES
-select _rowid_, id, json from test where id=1; -- stored fields
-select "";
-select _rowid_, id, json from test where key='42'; -- a non-stored field
+pragma foreign_keys=on;
+
+select "-- expect 1 user named dave";
+select count(*) from user where username = 'dave';
+
+select "-- expect 1 test with a username of dave";
+select count(*) from test where username = 'dave';
+
+select "-- expect 1 join on username";
+select 1 from user join test on user.username = test.username;
+
+select "-- deleting user dave";
+delete from user where username = 'dave'; -- this should cascade
+
+select "-- expect 0 user";
+select count(*) from user;
+
+select "-- expect 0 test";
+select count(*) from test;
+
 QUERIES

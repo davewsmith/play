@@ -26,7 +26,8 @@ select count(*) from user;
 select "-- expect 1 test";
 select count(*) from test;
 
-delete from user where username = 'dave';
+select "-- deleting user dave";
+delete from user where username = 'dave'; -- this should cascade
 
 select "-- expect 0 user";
 select count(*) from user;
