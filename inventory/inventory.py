@@ -38,9 +38,11 @@ def ext_if_any(filename):
 def timestamp(epochtime):
     return datetime.fromtimestamp(epochtime).strftime('%Y-%m-%d %H:%M:%S')
 
-def inventory():
+def inventory_header():
     print("md5,prefix,fullpath,filename,ext,size,created")
-    for (prefix, dirs, files) in os.walk('.'):
+
+def inventory(path):
+    for (prefix, dirs, files) in os.walk(path):
         if len(files):
             cull(dirs)
             for filename in files:
@@ -53,4 +55,5 @@ def inventory():
                 print(f'{md5},"{prefix}","{full_path}","{filename}","{ext}",{size},{created}')
 
 if __name__ == '__main__':
-    inventory()
+    inventory_header()
+    inventory('.')
