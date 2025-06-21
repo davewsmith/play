@@ -16,7 +16,10 @@ insert into user (username) values ('dave');
 create table if not exists test (
     json jsonb  not null,
     id int      not null as (json->>'id') stored,
-    username varchar     as (json->>'username') stored references user (username) on delete cascade,
+
+    username varchar     as (json->>'username') references user (username) on delete cascade,
+    -- note that that the delete will cascade even though username isn't expeclitly stored
+
     value text           as (json->>'value')
 );
 EOF
@@ -37,6 +40,9 @@ select count(*) from test where username = 'dave';
 
 select "-- expect 1 join on username";
 select 1 from user join test on user.username = test.username;
+
+select "-- query plan for deleting dave";
+explain query plan delete from user where username = 'dave';
 
 select "-- deleting user dave";
 delete from user where username = 'dave'; -- this should cascade
