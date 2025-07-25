@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+    A starting point for hacking around with canvas animations.
+-->
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Time!</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+    background: #fff;
+}
+
+#controlpanel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    background: #ddd;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.header h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.controls {
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.control:last-child {
+    margin-bottom: 8px;
+}
+
+.control label {
+    flex: 1;
+    margin: 0;
+}
+
+.control input[type=range] {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    margin: 0 8px;
+}
+
+.control .value {
+    width: 40px;
+    margin-left: 8px;
+    text-align: right;
+}
+
+</style>    
+
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div id="controlpanel">
+  <div class="header">
+    <h3>Controls</h3>
+  </div>
+  <div class="controls">
+    <div class="control">
+        <label for="x">X</label>
+        <input type="range" id="x" min="1" max="100" step="1" value="25">
+        <span id="xValue" class="value">25</span>
+    </div>
+    <div class="control">
+        <label for="y">Y</label>
+        <input type="range" id="y" min="1" max="100" step="1" value="50">
+        <span id="yValue" class="value">50</span>
+    </div>
+    <button id="play">Start</button>
+  </div>
+</div> <!-- #controlpanel -->
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function init() {
+        const controls = ['x', 'y'];
+        controls.forEach(id => {
+            const el = document.getElementById(id);
+            const stepSize = el.getAttribute('step') || '1';
+            const decimals = stepSize.includes('.') ? stepSize.split('.')[1].length : 0;;
+            const val = document.getElementById(id + "Value");
+            el.addEventListener('input', () => {
+                const v = parseFloat(el.value);
+                val.textContent = v.toFixed(decimals);
+            });
+        });
+
+        let playing = false;
+
+        const playEl = document.getElementById('play');
+        playEl.addEventListener('click', () => {
+            playing = !playing;
+            playEl.textContent = playing ? 'Stop' : 'Start';
+            if (playing) requestAnimationFrame(render);
+        });
+
+        let fpsInterval = 1000 / 60;
+
+        function drawFrame() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+          
+            /* Replace this part */ 
+            context.font = "50px sans-serif";
+            x = 100 + 2 * Math.floor(document.getElementById('x').value);
+            y = 100 + 2 * Math.floor(document.getElementById('y').value);
+            context.fillText("Hello, World!", x, y);
+        }
+
+        let then = performance.now();
+
+        function render(now) {
+            if (!playing) return;
+            requestAnimationFrame(render);
+
+            const elapsed = now - then;
+            if (elapsed < fpsInterval) return;
+            then = now - (elapsed % fpsInterval);
+
+            drawFrame(); 
+        }
+
+        drawFrame();
+        /* requestAnimationFrame(render); */
+
+    }
+    init();
+
+</script>
+
+</body>
+
+</html>
