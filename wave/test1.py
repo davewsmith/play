@@ -17,21 +17,29 @@ tool = [
 ]
 
 buffers = [bytearray(SAMPLES * BYTES_PER_SAMPLE) for _ in range(SECONDS)]
-next = 0
 
-with subprocess.Popen(tool, stdout=subprocess.PIPE) as proc:
-    # while True:
-    for _ in range(SECONDS):
-        count = proc.stdout.readinto(buffers[next])
-        if not count:
-            break
-        next += 1
+def run():
+    with subprocess.Popen(tool, stdout=subprocess.PIPE) as proc:
+        next = 0
+        # while True:
+        for _ in range(SECONDS):
+            count = proc.stdout.readinto(buffers[next])
+            if not count:
+                break
+            process(buffers[next])
+            next += 1
 
-with wave.open(f'test-{SAMPLES}-{BYTES_PER_SAMPLE}.wav', 'wb') as w:
-    w.setnchannels(1)
-    w.setsampwidth(BYTES_PER_SAMPLE)
-    w.setframerate(SAMPLES)
-    w.setnframes(SECONDS)
-    for i in range(SECONDS):
-        w.writeframes(buffers[i])
+    with wave.open(f'test-{SAMPLES}-{BYTES_PER_SAMPLE}.wav', 'wb') as w:
+        w.setnchannels(1)
+        w.setsampwidth(BYTES_PER_SAMPLE)
+        w.setframerate(SAMPLES)
+        w.setnframes(SECONDS)
+        for i in range(SECONDS):
+            w.writeframes(buffers[i])
 
+def process(buffer):
+    pass
+
+
+if __name__ == '__main__':
+    run()
