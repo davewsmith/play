@@ -3,13 +3,16 @@
 import subprocess
 import wave
 
+# DEVICE = "default"
+DEVICE = "sysdefault:CARD=GoMic"
 
 SAMPLES = 44100 // 4
-BYTES_PER_SAMPLE = 2
+BYTES_PER_SAMPLE = 1
 SECONDS = 5
 
 tool = [
     "arecord",
+    "-D", DEVICE,
     "-c", "1",
     f"--duration={SECONDS}",
     f"--rate={SAMPLES}",

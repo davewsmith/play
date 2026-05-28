@@ -16,6 +16,47 @@ card 0: PCH [HDA Intel PCH], device 0: CX20590 Analog [CX20590 Analog]
 Here's also where I discover that the USB mini cable for an old USB
 condensor mic has gone missing. mini? Jeez.
 
+```
+
+$ arecord -L
+null
+    Discard all samples (playback) or generate zero samples (capture)
+pipewire
+    PipeWire Sound Server
+default
+    Default ALSA Output (currently PipeWire Media Server)
+hw:CARD=PCH,DEV=0
+    HDA Intel PCH, CX20590 Analog
+    Direct hardware device without any conversions
+plughw:CARD=PCH,DEV=0
+    HDA Intel PCH, CX20590 Analog
+    Hardware device with all software conversions
+sysdefault:CARD=PCH
+    HDA Intel PCH, CX20590 Analog
+    Default Audio Device
+front:CARD=PCH,DEV=0
+    HDA Intel PCH, CX20590 Analog
+    Front output / input
+dsnoop:CARD=PCH,DEV=0
+    HDA Intel PCH, CX20590 Analog
+    Direct sample snooping device
+hw:CARD=GoMic,DEV=0
+    Samson GoMic, USB Audio
+    Direct hardware device without any conversions
+plughw:CARD=GoMic,DEV=0
+    Samson GoMic, USB Audio
+    Hardware device with all software conversions
+sysdefault:CARD=GoMic
+    Samson GoMic, USB Audio
+    Default Audio Device
+front:CARD=GoMic,DEV=0
+    Samson GoMic, USB Audio
+    Front output / input
+dsnoop:CARD=GoMic,DEV=0
+    Samson GoMic, USB Audio
+    Direct sample snooping device
+```                                                  
+
 ## spectrograms!
 
 ```
