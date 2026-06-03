@@ -7,7 +7,7 @@ import wave
 DEVICE = "sysdefault:CARD=GoMic"
 
 SAMPLES = 44100 // 4
-BYTES_PER_SAMPLE = 1
+BYTES_PER_SAMPLE = 2
 SECONDS = 5
 
 tool = [
