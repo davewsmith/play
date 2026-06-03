@@ -64,7 +64,7 @@ class Trigger:
                 result = "muted"
 
             lt = time.localtime(t)
-            print(f"{lt.tm_hour:02d}:{lt.tm_min:02d}:{lt.tm_sec:02d} {result}")
+            print(f"{t} {lt.tm_hour:02d}:{lt.tm_min:02d}:{lt.tm_sec:02d} {result}")
 
     def summarize(self):
         pass
@@ -84,4 +84,5 @@ def analyze(path, analyzer):
 
 if __name__ == '__main__':
     # analyze('overnight.log', Trigger(1 << 13, 5))
-    analyze('overnight.log', Trigger(1 << 12, 60))
+    # analyze('overnight.log', Trigger(1 << 12, 60))
+    analyze('onehour.log', Trigger(1 << 12, 60))
